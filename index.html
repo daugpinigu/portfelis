@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>daug_pinigu - Visos pozicijos</title>
+<title>daug_pinigu - Portfelio inventorius</title>
 <style>
   :root {
     --bg: #0b1729;
@@ -40,9 +40,174 @@
     font-size: 56px;
     font-weight: 800;
     letter-spacing: -1px;
-    margin-bottom: 36px;
+    margin-bottom: 8px;
     color: #fff;
   }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+
+  /* Performance summary card */
+  .perf {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 0 0 32px;
+    padding: 28px 0;
+    border-top: 1.5px solid var(--accent);
+    border-bottom: 1.5px solid var(--accent);
+    background: linear-gradient(180deg, rgba(45,212,191,0.04), rgba(45,212,191,0.0));
+  }
+  .perf-item {
+    text-align: center;
+    padding: 0 24px;
+    border-right: 1px solid var(--line);
+  }
+  .perf-item:last-child { border-right: none; }
+  .perf-label {
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .perf-value {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .perf-value.pos { color: var(--green); }
+  .perf-sub {
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  /* Allocation section */
+  .alloc-section {
+    margin-bottom: 40px;
+    padding: 32px;
+    background: var(--bg-card);
+    border-radius: 8px;
+    border: 1px solid var(--line);
+  }
+  .alloc-title {
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .alloc-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .donut-wrap {
+    position: relative;
+    width: 240px;
+    height: 240px;
+  }
+  .donut {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+      #2dd4bf 0% 50.41%,
+      #60a5fa 50.41% 59.65%,
+      #94a3b8 59.65% 67.91%,
+      #fb923c 67.91% 74.54%,
+      #ef4444 74.54% 80.60%,
+      #f59e0b 80.60% 85.34%,
+      #22c55e 85.34% 89.20%,
+      #818cf8 89.20% 92.88%,
+      #ec4899 92.88% 96.08%,
+      #a855f7 96.08% 99.02%,
+      #facc15 99.02% 100%
+    );
+    position: relative;
+  }
+  .donut::after {
+    content: '';
+    position: absolute;
+    inset: 42px;
+    background: var(--bg-card);
+    border-radius: 50%;
+  }
+  .donut-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+  }
+  .donut-center .big {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+  .donut-center .sml {
+    font-size: 10.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 6px;
+  }
+  .legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 32px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    padding: 4px 0;
+  }
+  .legend-item .dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .legend-item .name { flex: 1; color: #cfd8e3; }
+  .legend-item .pct {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+
+  /* Section header */
+  .section-header {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .section-header .meta-inline {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* Tables grid */
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -80,55 +245,90 @@
   tbody td.val .pnl { display: block; font-size: 10.5px; font-weight: 500; margin-top: 2px; letter-spacing: 0.3px; opacity: 0.9; }
   tbody tr:last-child td { border-bottom: none; }
 
-  .footer {
-    margin-top: 32px;
-    border: 1.5px solid var(--accent);
-    border-radius: 4px;
-    padding: 22px 28px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 24px;
-    background: linear-gradient(180deg, rgba(45,212,191,0.04), rgba(45,212,191,0.0));
-  }
-  .footer .label {
-    color: var(--muted);
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-  .footer .mid { color: #cfd8e3; font-size: 14px; text-align: center; }
-  .footer .total {
-    color: var(--accent);
-    font-size: 32px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    font-variant-numeric: tabular-nums;
-  }
   .meta {
-    margin-top: 18px;
+    margin-top: 24px;
     display: flex;
     justify-content: space-between;
     color: var(--muted);
     font-size: 11.5px;
     letter-spacing: 0.5px;
   }
-  .pnl-pos { color: var(--green); }
 
   @media (max-width: 880px) {
     .wrap { padding: 32px 20px; }
     h1 { font-size: 36px; }
+    .perf { grid-template-columns: repeat(2, 1fr); gap: 24px 0; padding: 20px 0; }
+    .perf-item { padding: 0 16px; border-right: none; }
+    .perf-item:nth-child(odd) { border-right: 1px solid var(--line); }
+    .perf-value { font-size: 24px; }
+    .alloc-grid { grid-template-columns: 1fr; gap: 32px; justify-items: center; }
+    .legend { grid-template-columns: 1fr; gap: 8px; }
     .grid { grid-template-columns: 1fr; }
-    .footer { grid-template-columns: 1fr; text-align: left; gap: 8px; }
-    .footer .mid { text-align: left; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="eyebrow">Portfelis</div>
-  <h1>Visos pozicijos</h1>
+  <h1>daug_pinigu</h1>
+  <div class="subtitle">Asmeninis portfelio inventorius - DCA strategija nuo 2023 sausio</div>
+
+  <!-- Performance Summary -->
+  <div class="perf">
+    <div class="perf-item">
+      <div class="perf-label">Bendras pelnas</div>
+      <div class="perf-value pos">+87.2%</div>
+      <div class="perf-sub">+$47,610</div>
+    </div>
+    <div class="perf-item">
+      <div class="perf-label">Metinė grąža (XIRR)</div>
+      <div class="perf-value pos">+40.1%</div>
+      <div class="perf-sub">per metus</div>
+    </div>
+    <div class="perf-item">
+      <div class="perf-label">Investuota</div>
+      <div class="perf-value">$54,619</div>
+      <div class="perf-sub">41 mėn DCA, ~$1,332/mėn</div>
+    </div>
+    <div class="perf-item">
+      <div class="perf-label">Vertė šiandien</div>
+      <div class="perf-value">$102,229</div>
+      <div class="perf-sub">2023.01 - 2026.05</div>
+    </div>
+  </div>
+
+  <!-- Allocation Donut -->
+  <div class="alloc-section">
+    <div class="alloc-title">Alokacija pagal kategorijas</div>
+    <div class="alloc-grid">
+      <div class="donut-wrap">
+        <div class="donut"></div>
+        <div class="donut-center">
+          <div class="big">$102K</div>
+          <div class="sml">portfelio vertė</div>
+        </div>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><span class="dot" style="background:#2dd4bf"></span><span class="name">Tech akcijos</span><span class="pct">50.4%</span></div>
+        <div class="legend-item"><span class="dot" style="background:#22c55e"></span><span class="name">Sveikata</span><span class="pct">3.9%</span></div>
+        <div class="legend-item"><span class="dot" style="background:#60a5fa"></span><span class="name">Finansai</span><span class="pct">9.2%</span></div>
+        <div class="legend-item"><span class="dot" style="background:#818cf8"></span><span class="name">Nasdaq 100 ETF</span><span class="pct">3.7%</span></div>
+        <div class="legend-item"><span class="dot" style="background:#94a3b8"></span><span class="name">Pinigai</span><span class="pct">8.3%</span></div>
+        <div class="legend-item"><span class="dot" style="background:#ec4899"></span><span class="name">Azijos rinka</span><span class="pct">3.2%</span></div>
+        <div class="legend-item"><span class="dot" style="background:#fb923c"></span><span class="name">Kripto</span><span class="pct">6.6%</span></div>
+        <div class="legend-item"><span class="dot" style="background:#a855f7"></span><span class="name">Mažos akcijos</span><span class="pct">2.9%</span></div>
+        <div class="legend-item"><span class="dot" style="background:#ef4444"></span><span class="name">Kinų akcijos</span><span class="pct">6.1%</span></div>
+        <div class="legend-item"><span class="dot" style="background:#facc15"></span><span class="name">Dividendai</span><span class="pct">1.0%</span></div>
+        <div class="legend-item"><span class="dot" style="background:#f59e0b"></span><span class="name">Kripto akcijos</span><span class="pct">4.7%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Positions table -->
+  <div class="section-header">
+    <span>Visos pozicijos</span>
+    <span class="meta-inline">37 pozicijos &bull; 11 kategorijų</span>
+  </div>
 
   <div class="grid">
     <!-- Column 1 -->
@@ -202,19 +402,9 @@
     </table>
   </div>
 
-  <div class="footer">
-    <div>
-      <div class="label">Portfelio vertė</div>
-    </div>
-    <div class="mid">
-      37 pozicijos &bull; investuota $54,619 &bull; pelnas <span class="pnl-pos">+$47,610 (+87.2%)</span>
-    </div>
-    <div class="total">$102,229.32</div>
-  </div>
-
   <div class="meta">
     <div>daug_pinigu - asmeninio portfelio inventorius</div>
-    <div>2026-05-12</div>
+    <div>Atnaujinta 2026-05-12</div>
   </div>
 </div>
 </body>
