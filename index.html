@@ -51,7 +51,7 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 13.5px;
+    font-size: 13px;
   }
   thead th {
     text-align: left;
@@ -65,15 +65,15 @@
   }
   thead th.num { text-align: right; }
   tbody td {
-    padding: 9px 0;
+    padding: 8px 0;
     border-bottom: 1px solid #14253e;
     color: #cfd8e3;
   }
   tbody td.tk { color: #fff; font-weight: 700; letter-spacing: 0.3px; }
-  tbody td.cat { color: var(--muted); font-size: 12.5px; }
+  tbody td.tk .sub { color: var(--muted); font-weight: 500; font-size: 10.5px; letter-spacing: 1px; display: block; margin-top: 1px; }
+  tbody td.cat { color: var(--muted); font-size: 12px; }
   tbody td.num { text-align: right; font-variant-numeric: tabular-nums; }
-  tbody td.val-pos { color: var(--green); font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
-  tbody td.val-neg { color: var(--red); font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+  tbody td.val { color: var(--green); font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
   tbody tr:last-child td { border-bottom: none; }
 
   .footer {
@@ -111,7 +111,6 @@
     letter-spacing: 0.5px;
   }
   .pnl-pos { color: var(--green); }
-  .pnl-neg { color: var(--red); }
 
   @media (max-width: 880px) {
     .wrap { padding: 32px 20px; }
@@ -128,6 +127,7 @@
   <h1>Visos pozicijos</h1>
 
   <div class="grid">
+    <!-- Column 1 -->
     <table>
       <thead>
         <tr>
@@ -138,9 +138,31 @@
           <th class="num">Vertė</th>
         </tr>
       </thead>
-      <tbody id="col1"></tbody>
+      <tbody>
+        <tr><td class="tk">TSLA</td><td class="cat">Tech akcijos</td><td class="num">52</td><td class="num">$270.75</td><td class="val">$22,432.80</td></tr>
+        <tr><td class="tk">AMZN</td><td class="cat">Tech akcijos</td><td class="num">45</td><td class="num">$203.58</td><td class="val">$11,893.95</td></tr>
+        <tr><td class="tk">Cash</td><td class="cat">Pinigai</td><td class="num">-</td><td class="num">-</td><td class="val">$8,435.68</td></tr>
+        <tr><td class="tk">NVDA</td><td class="cat">Tech akcijos</td><td class="num">35</td><td class="num">$178.29</td><td class="val">$7,704.20</td></tr>
+        <tr><td class="tk">META</td><td class="cat">Tech akcijos</td><td class="num">12</td><td class="num">$522.32</td><td class="val">$7,198.08</td></tr>
+        <tr><td class="tk">SOFI</td><td class="cat">Finansai</td><td class="num">300</td><td class="num">$21.31</td><td class="val">$4,758.00</td></tr>
+        <tr><td class="tk">HOOD</td><td class="cat">Finansai</td><td class="num">60</td><td class="num">$56.27</td><td class="val">$4,687.20</td></tr>
+        <tr><td class="tk">Bitcoin<span class="sub">BTC</span></td><td class="cat">Kripto</td><td class="num">0.05527</td><td class="num">$33,387.51</td><td class="val">$4,559.82</td></tr>
+        <tr><td class="tk">UNH</td><td class="cat">Sveikata</td><td class="num">10</td><td class="num">$293.11</td><td class="val">$3,950.50</td></tr>
+        <tr><td class="tk">ANAU</td><td class="cat">Nasdaq 100 ETF</td><td class="num">150</td><td class="num">$16.22</td><td class="val">$3,763.50</td></tr>
+        <tr><td class="tk">GRAB</td><td class="cat">Azijos rinka</td><td class="num">900</td><td class="num">$4.66</td><td class="val">$3,267.00</td></tr>
+        <tr><td class="tk">BMNR</td><td class="cat">Kripto akcijos</td><td class="num">130</td><td class="num">$39.04</td><td class="val">$2,819.70</td></tr>
+        <tr><td class="tk">BIDU</td><td class="cat">Kinų akcijos</td><td class="num">20</td><td class="num">$87.29</td><td class="val">$2,787.40</td></tr>
+        <tr><td class="tk">GOOGL</td><td class="cat">Tech akcijos</td><td class="num">6</td><td class="num">$185.91</td><td class="val">$2,309.04</td></tr>
+        <tr><td class="tk">BABA</td><td class="cat">Kinų akcijos</td><td class="num">17</td><td class="num">$77.96</td><td class="val">$2,307.75</td></tr>
+        <tr><td class="tk">VLN</td><td class="cat">Mažos akcijos</td><td class="num">500</td><td class="num">$2.30</td><td class="val">$1,325.00</td></tr>
+        <tr><td class="tk">CLSK</td><td class="cat">Kripto akcijos</td><td class="num">100</td><td class="num">$8.60</td><td class="val">$1,303.00</td></tr>
+        <tr><td class="tk">JD</td><td class="cat">Kinų akcijos</td><td class="num">35</td><td class="num">$36.29</td><td class="val">$1,101.80</td></tr>
+        <tr><td class="tk">SBET</td><td class="cat">Kripto akcijos</td><td class="num">100</td><td class="num">$18.29</td><td class="val">$717.00</td></tr>
+        <tr><td class="tk">Solana<span class="sub">SOL</span></td><td class="cat">Kripto</td><td class="num">7</td><td class="num">$147.36</td><td class="val">$592.20</td></tr>
+      </tbody>
     </table>
 
+    <!-- Column 2 -->
     <table>
       <thead>
         <tr>
@@ -151,7 +173,28 @@
           <th class="num">Vertė</th>
         </tr>
       </thead>
-      <tbody id="col2"></tbody>
+      <tbody>
+        <tr><td class="tk">Bittensor<span class="sub">TAO</span></td><td class="cat">Kripto</td><td class="num">2</td><td class="num">$286.10</td><td class="val">$558.00</td></tr>
+        <tr><td class="tk">Chainlink<span class="sub">LINK</span></td><td class="cat">Kripto</td><td class="num">56.51</td><td class="num">$10.89</td><td class="val">$531.72</td></tr>
+        <tr><td class="tk">Divai 2024</td><td class="cat">Dividendai</td><td class="num">-</td><td class="num">-</td><td class="val">$502.98</td></tr>
+        <tr><td class="tk">GME</td><td class="cat">Mažos akcijos</td><td class="num">20</td><td class="num">$17.95</td><td class="val">$453.20</td></tr>
+        <tr><td class="tk">3LMI</td><td class="cat">Mažos akcijos</td><td class="num">880</td><td class="num">$3.06</td><td class="val">$404.80</td></tr>
+        <tr><td class="tk">Divai 2025</td><td class="cat">Dividendai</td><td class="num">-</td><td class="num">-</td><td class="val">$368.73</td></tr>
+        <tr><td class="tk">TSL3</td><td class="cat">Mažos akcijos</td><td class="num">25</td><td class="num">$14.06</td><td class="val">$297.75</td></tr>
+        <tr><td class="tk">ALGS</td><td class="cat">Mažos akcijos</td><td class="num">38</td><td class="num">$25.74</td><td class="val">$244.34</td></tr>
+        <tr><td class="tk">Tron<span class="sub">TRX</span></td><td class="cat">Kripto</td><td class="num">483.45</td><td class="num">$0.31</td><td class="val">$164.37</td></tr>
+        <tr><td class="tk">RVPH</td><td class="cat">Mažos akcijos</td><td class="num">200</td><td class="num">$2.85</td><td class="val">$160.00</td></tr>
+        <tr><td class="tk">Dogecoin<span class="sub">DOGE</span></td><td class="cat">Kripto</td><td class="num">1,288.25</td><td class="num">$0.24</td><td class="val">$141.71</td></tr>
+        <tr><td class="tk">Divai 2023</td><td class="cat">Dividendai</td><td class="num">-</td><td class="num">-</td><td class="val">$132.90</td></tr>
+        <tr><td class="tk">Avalanche<span class="sub">AVAX</span></td><td class="cat">Kripto</td><td class="num">9.28</td><td class="num">$30.31</td><td class="val">$85.95</td></tr>
+        <tr><td class="tk">NXL</td><td class="cat">Mažos akcijos</td><td class="num">184</td><td class="num">$2.49</td><td class="val">$64.40</td></tr>
+        <tr><td class="tk">Celestia<span class="sub">TIA</span></td><td class="cat">Kripto</td><td class="num">154.38</td><td class="num">$4.07</td><td class="val">$54.03</td></tr>
+        <tr><td class="tk">Polygon<span class="sub">MATIC</span></td><td class="cat">Kripto</td><td class="num">587.10</td><td class="num">$0.31</td><td class="val">$52.84</td></tr>
+        <tr><td class="tk">Cosmos<span class="sub">ATOM</span></td><td class="cat">Kripto</td><td class="num">20.88</td><td class="num">$9.96</td><td class="val">$39.25</td></tr>
+        <tr><td class="tk">BIVI</td><td class="cat">Mažos akcijos</td><td class="num">28.1</td><td class="num">$32.74</td><td class="val">$37.09</td></tr>
+        <tr><td class="tk">CLDI</td><td class="cat">Mažos akcijos</td><td class="num">100</td><td class="num">$1.12</td><td class="val">$19.00</td></tr>
+        <tr><td class="tk">Loopring<span class="sub">LRC</span></td><td class="cat">Kripto</td><td class="num">154.36</td><td class="num">$0.35</td><td class="val">$2.62</td></tr>
+      </tbody>
     </table>
   </div>
 
@@ -160,120 +203,15 @@
       <div class="label">Portfelio vertė</div>
     </div>
     <div class="mid">
-      <span id="positionCount">0 pozicijų</span> &bull;
-      investuota <span id="invested">$0</span> &bull;
-      pelnas <span id="pnl" class="pnl-pos">+$0</span>
+      37 pozicijos &bull; investuota $54,619 &bull; pelnas <span class="pnl-pos">+$47,610 (+87.2%)</span>
     </div>
-    <div class="total" id="totalValue">$0</div>
+    <div class="total">$102,229.32</div>
   </div>
 
   <div class="meta">
     <div>daug_pinigu - asmeninio portfelio inventorius</div>
-    <div id="dateRange">2026-05-12</div>
+    <div>2026-05-12</div>
   </div>
 </div>
-
-<script>
-const positions = [
-  { ticker: 'TSLA',  cat: 'Tech akcijos',     shares: 52,         avg: 270.75,    value: 22432.80, pct: 21.96 },
-  { ticker: 'AMZN',  cat: 'Tech akcijos',     shares: 45,         avg: 203.58,    value: 11893.95, pct: 11.64 },
-  { ticker: 'Cash',  cat: 'Pinigai',          shares: null,       avg: null,      value: 8435.68,  pct: 8.26  },
-  { ticker: 'NVDA',  cat: 'Tech akcijos',     shares: 35,         avg: 178.29,    value: 7704.20,  pct: 7.54  },
-  { ticker: 'META',  cat: 'Tech akcijos',     shares: 12,         avg: 522.32,    value: 7198.08,  pct: 7.04  },
-  { ticker: 'SOFI',  cat: 'Finansai',         shares: 300,        avg: 21.31,     value: 4758.00,  pct: 4.66  },
-  { ticker: 'HOOD',  cat: 'Finansai',         shares: 60,         avg: 56.27,     value: 4687.20,  pct: 4.59  },
-  { ticker: 'BTC',   cat: 'Kripto',           shares: 0.05527,    avg: 33387.51,  value: 4559.82,  pct: 4.46  },
-  { ticker: 'UNH',   cat: 'Sveikata',         shares: 10,         avg: 293.11,    value: 3950.50,  pct: 3.87  },
-  { ticker: 'ANAU',  cat: 'Sveikata',         shares: 150,        avg: 16.22,     value: 3708.00,  pct: 3.63  },
-  { ticker: 'GRAB',  cat: 'Azijos rinka',     shares: 900,        avg: 4.66,      value: 3267.00,  pct: 3.20  },
-  { ticker: 'BMNR',  cat: 'Kripto akcijos',   shares: 130,        avg: 39.04,     value: 2819.70,  pct: 2.76  },
-  { ticker: 'BIDU',  cat: 'Kinų akcijos',     shares: 20,         avg: 87.29,     value: 2787.40,  pct: 2.73  },
-  { ticker: 'GOOGL', cat: 'Tech akcijos',     shares: 6,          avg: 185.91,    value: 2309.04,  pct: 2.26  },
-  { ticker: 'BABA',  cat: 'Kinų akcijos',     shares: 17,         avg: 77.96,     value: 2307.75,  pct: 2.26  },
-  { ticker: 'VLN',   cat: 'Mažos akcijos',    shares: 500,        avg: 2.30,      value: 1325.00,  pct: 1.30  },
-  { ticker: 'CLSK',  cat: 'Kripto akcijos',   shares: 100,        avg: 8.60,      value: 1303.00,  pct: 1.28  },
-  { ticker: 'JD',    cat: 'Kinų akcijos',     shares: 35,         avg: 36.29,     value: 1101.80,  pct: 1.08  },
-  { ticker: 'SBET',  cat: 'Kripto akcijos',   shares: 100,        avg: 18.29,     value: 717.00,   pct: 0.70  },
-  { ticker: 'SOL',   cat: 'Kripto',           shares: 7,          avg: 147.36,    value: 592.20,   pct: 0.58  },
-  { ticker: 'TAO',   cat: 'Kripto',           shares: 2,          avg: 286.10,    value: 558.00,   pct: 0.55  },
-  { ticker: 'LINK',  cat: 'Kripto',           shares: 56.506,     avg: 10.89,     value: 531.72,   pct: 0.52  },
-  { ticker: 'Divai 2024', cat: 'Dividendai',  shares: null,       avg: null,      value: 502.98,   pct: 0.49  },
-  { ticker: 'GME',   cat: 'Mažos akcijos',    shares: 20,         avg: 17.95,     value: 453.20,   pct: 0.44  },
-  { ticker: '3LMI',  cat: 'Mažos akcijos',    shares: 880,        avg: 3.06,      value: 404.80,   pct: 0.40  },
-  { ticker: 'Divai 2025', cat: 'Dividendai',  shares: null,       avg: null,      value: 368.73,   pct: 0.36  },
-  { ticker: 'TSL3',  cat: 'Mažos akcijos',    shares: 25,         avg: 14.06,     value: 297.75,   pct: 0.29  },
-  { ticker: 'ALGS',  cat: 'Mažos akcijos',    shares: 38,         avg: 25.74,     value: 244.34,   pct: 0.24  },
-  { ticker: 'TRX',   cat: 'Kripto',           shares: 483.449,    avg: 0.31,      value: 164.37,   pct: 0.16  },
-  { ticker: 'RVPH',  cat: 'Mažos akcijos',    shares: 200,        avg: 2.85,      value: 160.00,   pct: 0.16  },
-  { ticker: 'DOGE',  cat: 'Kripto',           shares: 1288.25,    avg: 0.24,      value: 141.71,   pct: 0.14  },
-  { ticker: 'Divai 2023', cat: 'Dividendai',  shares: null,       avg: null,      value: 132.90,   pct: 0.13  },
-  { ticker: 'AVAX',  cat: 'Kripto',           shares: 9.282,      avg: 30.31,     value: 85.95,    pct: 0.08  },
-  { ticker: 'NXL',   cat: 'Mažos akcijos',    shares: 184,        avg: 2.49,      value: 64.40,    pct: 0.06  },
-  { ticker: 'TIA',   cat: 'Kripto',           shares: 154.38,     avg: 4.07,      value: 54.03,    pct: 0.06  },
-  { ticker: 'MATIC', cat: 'Kripto',           shares: 587.1,      avg: 0.31,      value: 52.84,    pct: 0.05  },
-  { ticker: 'ATOM',  cat: 'Kripto',           shares: 20.88,      avg: 9.96,      value: 39.25,    pct: 0.04  },
-  { ticker: 'BIVI',  cat: 'Mažos akcijos',    shares: 28.1,       avg: 32.74,     value: 37.09,    pct: 0.04  },
-  { ticker: 'CLDI',  cat: 'Mažos akcijos',    shares: 100,        avg: 1.12,      value: 19.00,    pct: 0.02  },
-  { ticker: 'LRC',   cat: 'Kripto',           shares: 154.36,     avg: 0.35,      value: 2.62,     pct: 0.00  },
-];
-
-const invested = 54619.00;
-
-function fmtMoney(v, d=2) {
-  if (v === null || v === undefined) return '-';
-  const abs = Math.abs(v);
-  const sign = v < 0 ? '-' : '';
-  return sign + '$' + abs.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
-}
-
-function fmtShares(v) {
-  if (v === null || v === undefined) return '-';
-  if (v >= 100) return v.toLocaleString('en-US', { maximumFractionDigits: 0 });
-  if (v >= 1)   return v.toLocaleString('en-US', { maximumFractionDigits: 2 });
-  return v.toLocaleString('en-US', { maximumFractionDigits: 6 });
-}
-
-function fmtAvg(v) {
-  if (v === null || v === undefined) return '-';
-  if (v >= 100) return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  if (v >= 1)   return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
-}
-
-function render() {
-  const total = positions.reduce((s, p) => s + p.value, 0);
-  const pnl = total - invested;
-  const pnlPct = (pnl / invested) * 100;
-  const activeBuys = positions.filter(p => p.ticker !== 'Cash' && !p.ticker.startsWith('Divai')).length;
-
-  const half = Math.ceil(positions.length / 2);
-  const left = positions.slice(0, half);
-  const right = positions.slice(half);
-
-  const rowHtml = (p) => {
-    const valClass = (p.value >= 0) ? 'val-pos' : 'val-neg';
-    return `<tr>
-      <td class="tk">${p.ticker}</td>
-      <td class="cat">${p.cat}</td>
-      <td class="num">${fmtShares(p.shares)}</td>
-      <td class="num">${fmtAvg(p.avg)}</td>
-      <td class="${valClass}">${fmtMoney(p.value)}</td>
-    </tr>`;
-  };
-
-  document.getElementById('col1').innerHTML = left.map(rowHtml).join('');
-  document.getElementById('col2').innerHTML = right.map(rowHtml).join('');
-
-  document.getElementById('totalValue').textContent = fmtMoney(total, 2);
-  document.getElementById('invested').textContent = fmtMoney(invested, 0);
-  document.getElementById('positionCount').textContent = activeBuys + ' pozicijų';
-
-  const pnlEl = document.getElementById('pnl');
-  pnlEl.textContent = (pnl >= 0 ? '+' : '') + fmtMoney(pnl, 0) + ' (' + (pnl >= 0 ? '+' : '') + pnlPct.toFixed(1) + '%)';
-  pnlEl.className = pnl >= 0 ? 'pnl-pos' : 'pnl-neg';
-}
-
-render();
-</script>
 </body>
 </html>
