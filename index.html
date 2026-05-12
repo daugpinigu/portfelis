@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>daug_pinigu - Visos pozicijos</title>
+<style>
+  :root {
+    --bg: #0b1729;
+    --bg-card: #0f1f36;
+    --line: #1a2d4a;
+    --accent: #2dd4bf;
+    --text: #e6edf6;
+    --muted: #6b8197;
+    --green: #2dd4bf;
+    --red: #ef6a6a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 56px 48px 40px;
+  }
+  .eyebrow {
+    color: var(--accent);
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 36px;
+    color: #fff;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 32px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  thead th {
+    text-align: left;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 0 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  thead th.num { text-align: right; }
+  tbody td {
+    padding: 9px 0;
+    border-bottom: 1px solid #14253e;
+    color: #cfd8e3;
+  }
+  tbody td.tk { color: #fff; font-weight: 700; letter-spacing: 0.3px; }
+  tbody td.cat { color: var(--muted); font-size: 12.5px; }
+  tbody td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody td.val-pos { color: var(--green); font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+  tbody td.val-neg { color: var(--red); font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .footer {
+    margin-top: 32px;
+    border: 1.5px solid var(--accent);
+    border-radius: 4px;
+    padding: 22px 28px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 24px;
+    background: linear-gradient(180deg, rgba(45,212,191,0.04), rgba(45,212,191,0.0));
+  }
+  .footer .label {
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .footer .mid { color: #cfd8e3; font-size: 14px; text-align: center; }
+  .footer .total {
+    color: var(--accent);
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    font-variant-numeric: tabular-nums;
+  }
+  .meta {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 11.5px;
+    letter-spacing: 0.5px;
+  }
+  .pnl-pos { color: var(--green); }
+  .pnl-neg { color: var(--red); }
+
+  @media (max-width: 880px) {
+    .wrap { padding: 32px 20px; }
+    h1 { font-size: 36px; }
+    .grid { grid-template-columns: 1fr; }
+    .footer { grid-template-columns: 1fr; text-align: left; gap: 8px; }
+    .footer .mid { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Portfelis</div>
+  <h1>Visos pozicijos</h1>
+
+  <div class="grid">
+    <table>
+      <thead>
+        <tr>
+          <th>Tikeris</th>
+          <th>Kategorija</th>
+          <th class="num">Kiekis</th>
+          <th class="num">Avg kaina</th>
+          <th class="num">Vertė</th>
+        </tr>
+      </thead>
+      <tbody id="col1"></tbody>
+    </table>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Tikeris</th>
+          <th>Kategorija</th>
+          <th class="num">Kiekis</th>
+          <th class="num">Avg kaina</th>
+          <th class="num">Vertė</th>
+        </tr>
+      </thead>
+      <tbody id="col2"></tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <div>
+      <div class="label">Portfelio vertė</div>
+    </div>
+    <div class="mid">
+      <span id="positionCount">0 pozicijų</span> &bull;
+      investuota <span id="invested">$0</span> &bull;
+      pelnas <span id="pnl" class="pnl-pos">+$0</span>
+    </div>
+    <div class="total" id="totalValue">$0</div>
+  </div>
+
+  <div class="meta">
+    <div>daug_pinigu - asmeninio portfelio inventorius</div>
+    <div id="dateRange">2026-05-12</div>
+  </div>
+</div>
+
+<script>
+const positions = [
+  { ticker: 'TSLA',  cat: 'Tech akcijos',     shares: 52,         avg: 270.75,    value: 22432.80, pct: 21.96 },
+  { ticker: 'AMZN',  cat: 'Tech akcijos',     shares: 45,         avg: 203.58,    value: 11893.95, pct: 11.64 },
+  { ticker: 'Cash',  cat: 'Pinigai',          shares: null,       avg: null,      value: 8435.68,  pct: 8.26  },
+  { ticker: 'NVDA',  cat: 'Tech akcijos',     shares: 35,         avg: 178.29,    value: 7704.20,  pct: 7.54  },
+  { ticker: 'META',  cat: 'Tech akcijos',     shares: 12,         avg: 522.32,    value: 7198.08,  pct: 7.04  },
+  { ticker: 'SOFI',  cat: 'Finansai',         shares: 300,        avg: 21.31,     value: 4758.00,  pct: 4.66  },
+  { ticker: 'HOOD',  cat: 'Finansai',         shares: 60,         avg: 56.27,     value: 4687.20,  pct: 4.59  },
+  { ticker: 'BTC',   cat: 'Kripto',           shares: 0.05527,    avg: 33387.51,  value: 4559.82,  pct: 4.46  },
+  { ticker: 'UNH',   cat: 'Sveikata',         shares: 10,         avg: 293.11,    value: 3950.50,  pct: 3.87  },
+  { ticker: 'ANAU',  cat: 'Sveikata',         shares: 150,        avg: 16.22,     value: 3708.00,  pct: 3.63  },
+  { ticker: 'GRAB',  cat: 'Azijos rinka',     shares: 900,        avg: 4.66,      value: 3267.00,  pct: 3.20  },
+  { ticker: 'BMNR',  cat: 'Kripto akcijos',   shares: 130,        avg: 39.04,     value: 2819.70,  pct: 2.76  },
+  { ticker: 'BIDU',  cat: 'Kinų akcijos',     shares: 20,         avg: 87.29,     value: 2787.40,  pct: 2.73  },
+  { ticker: 'GOOGL', cat: 'Tech akcijos',     shares: 6,          avg: 185.91,    value: 2309.04,  pct: 2.26  },
+  { ticker: 'BABA',  cat: 'Kinų akcijos',     shares: 17,         avg: 77.96,     value: 2307.75,  pct: 2.26  },
+  { ticker: 'VLN',   cat: 'Mažos akcijos',    shares: 500,        avg: 2.30,      value: 1325.00,  pct: 1.30  },
+  { ticker: 'CLSK',  cat: 'Kripto akcijos',   shares: 100,        avg: 8.60,      value: 1303.00,  pct: 1.28  },
+  { ticker: 'JD',    cat: 'Kinų akcijos',     shares: 35,         avg: 36.29,     value: 1101.80,  pct: 1.08  },
+  { ticker: 'SBET',  cat: 'Kripto akcijos',   shares: 100,        avg: 18.29,     value: 717.00,   pct: 0.70  },
+  { ticker: 'SOL',   cat: 'Kripto',           shares: 7,          avg: 147.36,    value: 592.20,   pct: 0.58  },
+  { ticker: 'TAO',   cat: 'Kripto',           shares: 2,          avg: 286.10,    value: 558.00,   pct: 0.55  },
+  { ticker: 'LINK',  cat: 'Kripto',           shares: 56.506,     avg: 10.89,     value: 531.72,   pct: 0.52  },
+  { ticker: 'Divai 2024', cat: 'Dividendai',  shares: null,       avg: null,      value: 502.98,   pct: 0.49  },
+  { ticker: 'GME',   cat: 'Mažos akcijos',    shares: 20,         avg: 17.95,     value: 453.20,   pct: 0.44  },
+  { ticker: '3LMI',  cat: 'Mažos akcijos',    shares: 880,        avg: 3.06,      value: 404.80,   pct: 0.40  },
+  { ticker: 'Divai 2025', cat: 'Dividendai',  shares: null,       avg: null,      value: 368.73,   pct: 0.36  },
+  { ticker: 'TSL3',  cat: 'Mažos akcijos',    shares: 25,         avg: 14.06,     value: 297.75,   pct: 0.29  },
+  { ticker: 'ALGS',  cat: 'Mažos akcijos',    shares: 38,         avg: 25.74,     value: 244.34,   pct: 0.24  },
+  { ticker: 'TRX',   cat: 'Kripto',           shares: 483.449,    avg: 0.31,      value: 164.37,   pct: 0.16  },
+  { ticker: 'RVPH',  cat: 'Mažos akcijos',    shares: 200,        avg: 2.85,      value: 160.00,   pct: 0.16  },
+  { ticker: 'DOGE',  cat: 'Kripto',           shares: 1288.25,    avg: 0.24,      value: 141.71,   pct: 0.14  },
+  { ticker: 'Divai 2023', cat: 'Dividendai',  shares: null,       avg: null,      value: 132.90,   pct: 0.13  },
+  { ticker: 'AVAX',  cat: 'Kripto',           shares: 9.282,      avg: 30.31,     value: 85.95,    pct: 0.08  },
+  { ticker: 'NXL',   cat: 'Mažos akcijos',    shares: 184,        avg: 2.49,      value: 64.40,    pct: 0.06  },
+  { ticker: 'TIA',   cat: 'Kripto',           shares: 154.38,     avg: 4.07,      value: 54.03,    pct: 0.06  },
+  { ticker: 'MATIC', cat: 'Kripto',           shares: 587.1,      avg: 0.31,      value: 52.84,    pct: 0.05  },
+  { ticker: 'ATOM',  cat: 'Kripto',           shares: 20.88,      avg: 9.96,      value: 39.25,    pct: 0.04  },
+  { ticker: 'BIVI',  cat: 'Mažos akcijos',    shares: 28.1,       avg: 32.74,     value: 37.09,    pct: 0.04  },
+  { ticker: 'CLDI',  cat: 'Mažos akcijos',    shares: 100,        avg: 1.12,      value: 19.00,    pct: 0.02  },
+  { ticker: 'LRC',   cat: 'Kripto',           shares: 154.36,     avg: 0.35,      value: 2.62,     pct: 0.00  },
+];
+
+const invested = 54619.00;
+
+function fmtMoney(v, d=2) {
+  if (v === null || v === undefined) return '-';
+  const abs = Math.abs(v);
+  const sign = v < 0 ? '-' : '';
+  return sign + '$' + abs.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+
+function fmtShares(v) {
+  if (v === null || v === undefined) return '-';
+  if (v >= 100) return v.toLocaleString('en-US', { maximumFractionDigits: 0 });
+  if (v >= 1)   return v.toLocaleString('en-US', { maximumFractionDigits: 2 });
+  return v.toLocaleString('en-US', { maximumFractionDigits: 6 });
+}
+
+function fmtAvg(v) {
+  if (v === null || v === undefined) return '-';
+  if (v >= 100) return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  if (v >= 1)   return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+}
+
+function render() {
+  const total = positions.reduce((s, p) => s + p.value, 0);
+  const pnl = total - invested;
+  const pnlPct = (pnl / invested) * 100;
+  const activeBuys = positions.filter(p => p.ticker !== 'Cash' && !p.ticker.startsWith('Divai')).length;
+
+  const half = Math.ceil(positions.length / 2);
+  const left = positions.slice(0, half);
+  const right = positions.slice(half);
+
+  const rowHtml = (p) => {
+    const valClass = (p.value >= 0) ? 'val-pos' : 'val-neg';
+    return `<tr>
+      <td class="tk">${p.ticker}</td>
+      <td class="cat">${p.cat}</td>
+      <td class="num">${fmtShares(p.shares)}</td>
+      <td class="num">${fmtAvg(p.avg)}</td>
+      <td class="${valClass}">${fmtMoney(p.value)}</td>
+    </tr>`;
+  };
+
+  document.getElementById('col1').innerHTML = left.map(rowHtml).join('');
+  document.getElementById('col2').innerHTML = right.map(rowHtml).join('');
+
+  document.getElementById('totalValue').textContent = fmtMoney(total, 2);
+  document.getElementById('invested').textContent = fmtMoney(invested, 0);
+  document.getElementById('positionCount').textContent = activeBuys + ' pozicijų';
+
+  const pnlEl = document.getElementById('pnl');
+  pnlEl.textContent = (pnl >= 0 ? '+' : '') + fmtMoney(pnl, 0) + ' (' + (pnl >= 0 ? '+' : '') + pnlPct.toFixed(1) + '%)';
+  pnlEl.className = pnl >= 0 ? 'pnl-pos' : 'pnl-neg';
+}
+
+render();
+</script>
+</body>
+</html>
