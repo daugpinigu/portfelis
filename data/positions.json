@@ -1,0 +1,390 @@
+{
+  "meta": {
+    "lastUpdated": "2026-05-13",
+    "totalInvested": 54619.0,
+    "monthlyDCA": 1332.17,
+    "startDate": "2023-01-01",
+    "monthsActive": 41
+  },
+  "positions": [
+    {
+      "ticker": "TSLA",
+      "category": "Tech akcijos",
+      "shares": 52,
+      "avgPrice": 270.75,
+      "cost": 14079.07,
+      "currentPrice": 437.635,
+      "yahoo": "TSLA"
+    },
+    {
+      "ticker": "AMZN",
+      "category": "Tech akcijos",
+      "shares": 45,
+      "avgPrice": 203.58,
+      "cost": 9161.0,
+      "currentPrice": 265.53,
+      "yahoo": "AMZN"
+    },
+    {
+      "ticker": "Cash",
+      "category": "Pinigai",
+      "fixedValue": 8435.68
+    },
+    {
+      "ticker": "NVDA",
+      "category": "Tech akcijos",
+      "shares": 35,
+      "avgPrice": 178.29,
+      "cost": 6240.0,
+      "currentPrice": 224.063,
+      "yahoo": "NVDA"
+    },
+    {
+      "ticker": "META",
+      "category": "Tech akcijos",
+      "shares": 12,
+      "avgPrice": 522.32,
+      "cost": 6267.8,
+      "currentPrice": 606.355,
+      "yahoo": "META"
+    },
+    {
+      "ticker": "SOFI",
+      "category": "Finansai",
+      "shares": 300,
+      "avgPrice": 21.31,
+      "cost": 6391.5,
+      "currentPrice": 15.345,
+      "yahoo": "SOFI"
+    },
+    {
+      "ticker": "HOOD",
+      "category": "Finansai",
+      "shares": 60,
+      "avgPrice": 56.27,
+      "cost": 3376.0,
+      "currentPrice": 76.679,
+      "yahoo": "HOOD"
+    },
+    {
+      "ticker": "Bitcoin",
+      "displayName": "Bitcoin",
+      "subTicker": "BTC",
+      "category": "Kripto",
+      "shares": 0.05527,
+      "avgPrice": 33387.51,
+      "cost": 1845.35,
+      "currentPrice": 79660,
+      "coingecko": "bitcoin"
+    },
+    {
+      "ticker": "UNH",
+      "category": "Sveikata",
+      "shares": 10,
+      "avgPrice": 293.11,
+      "cost": 2931.14,
+      "currentPrice": 399.34,
+      "yahoo": "UNH"
+    },
+    {
+      "ticker": "ANAU",
+      "category": "Nasdaq 100 ETF",
+      "shares": 150,
+      "avgPrice": 16.22,
+      "cost": 2433.0,
+      "currentPrice": 25.09,
+      "yahoo": "ANAU.BR"
+    },
+    {
+      "ticker": "GRAB",
+      "category": "Azijos rinka",
+      "shares": 900,
+      "avgPrice": 4.66,
+      "cost": 4194.86,
+      "currentPrice": 3.605,
+      "yahoo": "GRAB"
+    },
+    {
+      "ticker": "BMNR",
+      "category": "Kripto akcijos",
+      "shares": 130,
+      "avgPrice": 39.04,
+      "cost": 5075.0,
+      "currentPrice": 21.37,
+      "yahoo": "BMNR"
+    },
+    {
+      "ticker": "BIDU",
+      "category": "Kinų akcijos",
+      "shares": 20,
+      "avgPrice": 87.29,
+      "cost": 1745.8,
+      "currentPrice": 150.71,
+      "yahoo": "BIDU"
+    },
+    {
+      "ticker": "GOOGL",
+      "category": "Tech akcijos",
+      "shares": 6,
+      "avgPrice": 185.91,
+      "cost": 1115.46,
+      "currentPrice": 393.71,
+      "yahoo": "GOOGL"
+    },
+    {
+      "ticker": "BABA",
+      "category": "Kinų akcijos",
+      "shares": 17,
+      "avgPrice": 77.96,
+      "cost": 1403.0,
+      "currentPrice": 144.6,
+      "yahoo": "BABA"
+    },
+    {
+      "ticker": "VLN",
+      "category": "Mažos akcijos",
+      "shares": 500,
+      "avgPrice": 2.3,
+      "cost": 1149.0,
+      "currentPrice": 2.978,
+      "yahoo": "VLN"
+    },
+    {
+      "ticker": "CLSK",
+      "category": "Kripto akcijos",
+      "shares": 100,
+      "avgPrice": 8.6,
+      "cost": 860.0,
+      "currentPrice": 13.4,
+      "yahoo": "CLSK"
+    },
+    {
+      "ticker": "JD",
+      "category": "Kinų akcijos",
+      "shares": 35,
+      "avgPrice": 36.29,
+      "cost": 1270.0,
+      "currentPrice": 33.89,
+      "yahoo": "JD"
+    },
+    {
+      "ticker": "SBET",
+      "category": "Kripto akcijos",
+      "shares": 100,
+      "avgPrice": 18.29,
+      "cost": 1829.0,
+      "currentPrice": 7.11,
+      "yahoo": "SBET"
+    },
+    {
+      "ticker": "Solana",
+      "displayName": "Solana",
+      "subTicker": "SOL",
+      "category": "Kripto",
+      "shares": 7,
+      "avgPrice": 147.36,
+      "cost": 1031.52,
+      "currentPrice": 91.95,
+      "coingecko": "solana"
+    },
+    {
+      "ticker": "Bittensor",
+      "displayName": "Bittensor",
+      "subTicker": "TAO",
+      "category": "Kripto",
+      "shares": 2,
+      "avgPrice": 286.1,
+      "cost": 572.2,
+      "currentPrice": 297.67,
+      "coingecko": "bittensor"
+    },
+    {
+      "ticker": "Chainlink",
+      "displayName": "Chainlink",
+      "subTicker": "LINK",
+      "category": "Kripto",
+      "shares": 56.506,
+      "avgPrice": 10.89,
+      "cost": 615.6,
+      "currentPrice": 10.22,
+      "coingecko": "chainlink"
+    },
+    {
+      "ticker": "Divai 2024",
+      "category": "Dividendai",
+      "fixedValue": 502.98
+    },
+    {
+      "ticker": "GME",
+      "category": "Mažos akcijos",
+      "shares": 20,
+      "avgPrice": 17.95,
+      "cost": 359.0,
+      "currentPrice": 22.03,
+      "yahoo": "GME"
+    },
+    {
+      "ticker": "3LMI",
+      "category": "Mažos akcijos",
+      "shares": 880,
+      "avgPrice": 3.06,
+      "cost": 2692.85,
+      "currentPrice": 0.46,
+      "yahoo": "3LMI.DE"
+    },
+    {
+      "ticker": "Divai 2025",
+      "category": "Dividendai",
+      "fixedValue": 368.73
+    },
+    {
+      "ticker": "TSL3",
+      "category": "Mažos akcijos",
+      "shares": 25,
+      "avgPrice": 14.06,
+      "cost": 351.5,
+      "currentPrice": 15.9,
+      "yahoo": "TSL3.L"
+    },
+    {
+      "ticker": "ALGS",
+      "category": "Mažos akcijos",
+      "shares": 38,
+      "avgPrice": 25.74,
+      "cost": 978.0,
+      "currentPrice": 6.45,
+      "yahoo": "ALGS"
+    },
+    {
+      "ticker": "Tron",
+      "displayName": "Tron",
+      "subTicker": "TRX",
+      "category": "Kripto",
+      "shares": 483.449,
+      "avgPrice": 0.31,
+      "cost": 148.52,
+      "currentPrice": 0.349441,
+      "coingecko": "tron"
+    },
+    {
+      "ticker": "RVPH",
+      "category": "Mažos akcijos",
+      "shares": 200,
+      "avgPrice": 2.85,
+      "cost": 569.6,
+      "currentPrice": 0.3559,
+      "yahoo": "RVPH"
+    },
+    {
+      "ticker": "Dogecoin",
+      "displayName": "Dogecoin",
+      "subTicker": "DOGE",
+      "category": "Kripto",
+      "shares": 1288.25,
+      "avgPrice": 0.24,
+      "cost": 307.87,
+      "currentPrice": 0.111157,
+      "coingecko": "dogecoin"
+    },
+    {
+      "ticker": "Divai 2023",
+      "category": "Dividendai",
+      "fixedValue": 132.9
+    },
+    {
+      "ticker": "Avalanche",
+      "displayName": "Avalanche",
+      "subTicker": "AVAX",
+      "category": "Kripto",
+      "shares": 9.282,
+      "avgPrice": 30.31,
+      "cost": 281.3,
+      "currentPrice": 9.78,
+      "coingecko": "avalanche-2"
+    },
+    {
+      "ticker": "NXL",
+      "category": "Mažos akcijos",
+      "shares": 184,
+      "avgPrice": 2.49,
+      "cost": 457.68,
+      "currentPrice": 0.3406,
+      "yahoo": "NXL"
+    },
+    {
+      "ticker": "Celestia",
+      "displayName": "Celestia",
+      "subTicker": "TIA",
+      "category": "Kripto",
+      "shares": 154.38,
+      "avgPrice": 4.07,
+      "cost": 629.0,
+      "currentPrice": 0.470353,
+      "coingecko": "celestia"
+    },
+    {
+      "ticker": "Polygon",
+      "displayName": "Polygon",
+      "subTicker": "MATIC",
+      "category": "Kripto",
+      "shares": 587.1,
+      "avgPrice": 0.31,
+      "cost": 181.3,
+      "currentPrice": 0.097867,
+      "coingecko": "polygon-ecosystem-token"
+    },
+    {
+      "ticker": "Cosmos",
+      "displayName": "Cosmos",
+      "subTicker": "ATOM",
+      "category": "Kripto",
+      "shares": 20.88,
+      "avgPrice": 9.96,
+      "cost": 208.0,
+      "currentPrice": 2.06,
+      "coingecko": "cosmos"
+    },
+    {
+      "ticker": "BIVI",
+      "category": "Mažos akcijos",
+      "shares": 28.1,
+      "avgPrice": 32.74,
+      "cost": 920.0,
+      "currentPrice": 1.265,
+      "yahoo": "BIVI"
+    },
+    {
+      "ticker": "CLDI",
+      "category": "Mažos akcijos",
+      "shares": 100,
+      "avgPrice": 1.12,
+      "cost": 112.0,
+      "currentPrice": 0.183,
+      "yahoo": "CLDI"
+    },
+    {
+      "ticker": "Loopring",
+      "displayName": "Loopring",
+      "subTicker": "LRC",
+      "category": "Kripto",
+      "shares": 154.36,
+      "avgPrice": 0.35,
+      "cost": 54.2,
+      "currentPrice": 0.01825257,
+      "coingecko": "loopring"
+    }
+  ],
+  "categoryColors": {
+    "Tech akcijos": "#2dd4bf",
+    "Finansai": "#60a5fa",
+    "Pinigai": "#94a3b8",
+    "Kripto": "#fb923c",
+    "Kinų akcijos": "#ef4444",
+    "Kripto akcijos": "#f59e0b",
+    "Sveikata": "#22c55e",
+    "Nasdaq 100 ETF": "#818cf8",
+    "Azijos rinka": "#ec4899",
+    "Mažos akcijos": "#a855f7",
+    "Dividendai": "#facc15"
+  }
+}

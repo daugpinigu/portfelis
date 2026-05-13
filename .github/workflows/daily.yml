@@ -1,0 +1,40 @@
+name: Daily Price Update
+
+on:
+  schedule:
+    - cron: '0 22 * * *'  # 22:00 UTC daily (after US market close)
+  workflow_dispatch:       # allow manual trigger from Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run price update
+        run: python scripts/update.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "daugpinigu-bot"
+          git config user.email "bot@daugpinigu.local"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Auto-update prices $(date -u +%Y-%m-%d)"
+            git push
+          fi
