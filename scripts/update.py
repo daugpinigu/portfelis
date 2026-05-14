@@ -233,9 +233,13 @@ def render(data):
     spx_value = 82666
     spx_return_pct = 51.4
     spx_xirr = 25.7
-    diff_dollar = total - spx_value
-    diff_pct = (total / spx_value - 1) * 100
-    spx_bar_pct = spx_value / total * 100
+    spx_profit = spx_value - invested
+    your_profit = total - invested
+    diff_dollar = your_profit - spx_profit
+    diff_multiple = your_profit / spx_profit if spx_profit > 0 else 0
+    # Bars now compare PROFIT (same capital in, profit is the real diff)
+    your_bar_pct = 100.0
+    spx_bar_pct = (spx_profit / your_profit * 100) if your_profit > 0 else 0
 
     template = f"""<!DOCTYPE html>
 <html lang="lt">
@@ -275,15 +279,18 @@ def render(data):
   .benchmark-row {{ display: grid; grid-template-columns: 160px 1fr 140px; align-items: center; gap: 20px; }}
   .benchmark-row .bk-label {{ color: #cfd8e3; font-size: 13px; font-weight: 600; }}
   .benchmark-row.you .bk-label {{ color: var(--accent); }}
-  .benchmark-row .bk-bar-wrap {{ height: 28px; background: #14253e; border-radius: 4px; position: relative; overflow: hidden; }}
-  .benchmark-row .bk-bar {{ position: absolute; top: 0; bottom: 0; left: 0; border-radius: 4px; transition: width 0.6s ease; }}
-  .benchmark-row.you .bk-bar {{ background: linear-gradient(90deg, var(--accent) 0%, #5eead4 100%); }}
-  .benchmark-row.vwce .bk-bar {{ background: linear-gradient(90deg, #94a3b8 0%, #cbd5e1 100%); }}
+  .benchmark-row .bk-bar-wrap {{ height: 38px; background: #14253e; border-radius: 4px; position: relative; overflow: hidden; }}
+  .benchmark-row .bk-bar {{ position: absolute; top: 0; bottom: 0; left: 0; border-radius: 4px; transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); }}
+  .benchmark-row.you .bk-bar {{ background: linear-gradient(90deg, var(--accent) 0%, #5eead4 100%); box-shadow: 0 0 24px rgba(45,212,191,0.4); }}
+  .benchmark-row.vwce .bk-bar {{ background: linear-gradient(90deg, #475569 0%, #64748b 100%); opacity: 0.85; }}
   .benchmark-row .bk-right {{ text-align: right; }}
   .benchmark-row .bk-value {{ font-size: 19px; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; line-height: 1; }}
   .benchmark-row .bk-meta {{ display: block; font-size: 10.5px; color: var(--muted); font-weight: 500; margin-top: 4px; letter-spacing: 0.3px; }}
-  .benchmark-summary {{ padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: #cfd8e3; text-align: center; }}
-  .benchmark-summary strong {{ color: var(--accent); font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; }}
+  .benchmark-summary {{ padding-top: 22px; border-top: 1px solid var(--line); font-size: 14px; color: #cfd8e3; text-align: center; letter-spacing: 0.2px; }}
+  .benchmark-summary strong {{ color: var(--accent); font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.3px; }}
+  .benchmark-rows {{ position: relative; }}
+  .benchmark-row.vwce .bk-value {{ color: #94a3b8; }}
+  .benchmark-row.vwce .bk-label {{ color: #94a3b8; }}
   .alloc-section {{ margin-bottom: 40px; padding: 32px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--line); }}
   .alloc-title {{ color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 6px; }}
   .alloc-hint {{ color: var(--muted); font-size: 11.5px; margin-bottom: 24px; opacity: 0.7; }}
@@ -375,28 +382,28 @@ def render(data):
   </div>
 
   <div class="benchmark">
-    <div class="benchmark-title">Benchmark palyginimas: aktyvus pick vs S&amp;P 500</div>
-    <div class="benchmark-hint">Jei tą patį ~${meta['monthlyDCA']:,.0f}/mėn DCA strategija būtum investavęs į S&amp;P 500 indeksą (pvz. SPY ETF) - JAV didžiausių 500 įmonių pasyvų indeksą</div>
+    <div class="benchmark-title">Pelnas vs S&amp;P 500 benchmark</div>
+    <div class="benchmark-hint">Tą pačią ~${meta['monthlyDCA']:,.0f}/mėn DCA sumą investavus į S&amp;P 500 indeksą (pasyvi strategija). Įdėtas kapitalas tas pats - <strong style="color:#fff">{int(round(diff_multiple*10))/10}x didesnis pelnas</strong> dėl aktyvaus pick'inimo.</div>
     <div class="benchmark-rows">
       <div class="benchmark-row you">
-        <div class="bk-label">Tavo portfelis</div>
-        <div class="bk-bar-wrap"><div class="bk-bar" style="width: 100%"></div></div>
+        <div class="bk-label">Tavo pelnas</div>
+        <div class="bk-bar-wrap"><div class="bk-bar" style="width: {your_bar_pct:.1f}%"></div></div>
         <div class="bk-right">
-          <div class="bk-value">${total:,.0f}</div>
-          <div class="bk-meta">+{pnl_pct:.1f}% &bull; XIRR {xirr_r:.1f}%/m</div>
+          <div class="bk-value">+${your_profit:,.0f}</div>
+          <div class="bk-meta">+{pnl_pct:.1f}% &bull; vertė ${total:,.0f}</div>
         </div>
       </div>
       <div class="benchmark-row vwce">
-        <div class="bk-label">S&amp;P 500 (jei būtum)</div>
+        <div class="bk-label">S&amp;P 500 pelnas</div>
         <div class="bk-bar-wrap"><div class="bk-bar" style="width: {spx_bar_pct:.1f}%"></div></div>
         <div class="bk-right">
-          <div class="bk-value">${spx_value:,.0f}</div>
-          <div class="bk-meta">+{spx_return_pct:.1f}% &bull; XIRR {spx_xirr:.1f}%/m</div>
+          <div class="bk-value">+${spx_profit:,.0f}</div>
+          <div class="bk-meta">+{spx_return_pct:.1f}% &bull; vertė ${spx_value:,.0f}</div>
         </div>
       </div>
     </div>
     <div class="benchmark-summary">
-      Aktyvus stock-picking lenkia S&amp;P 500 benchmark'ą per <strong>{'+' if diff_dollar >= 0 else ''}${diff_dollar:,.0f} ({'+' if diff_pct >= 0 else ''}{diff_pct:.1f}%)</strong> šiuo periodu
+      Tavo alpha prieš S&amp;P 500: <strong>+${diff_dollar:,.0f}</strong> &nbsp;|&nbsp; <strong>{diff_multiple:.2f}x</strong> daugiau pelno už tą pačią DCA sumą
     </div>
   </div>
 
