@@ -227,11 +227,15 @@ def render(data):
     # Donut center
     total_short = f"${total/1000:,.0f}K"
 
-    # VWCE comparison (static for now - same period assumption)
-    vwce_value = 76138
-    diff_dollar = total - vwce_value
-    diff_pct = (total / vwce_value - 1) * 100
-    vwce_bar_pct = vwce_value / total * 100
+    # S&P 500 benchmark comparison (DCA $1,332/mėn Jan 2023 - May 2026)
+    # Based on validated returns: 2023 +26.3%, 2024 +25.0%, 2025 +14%, 2026 YTD +18.7%
+    # Matches finviz 1Y trailing +28.79% and 3Y annualized +23.18%
+    spx_value = 82666
+    spx_return_pct = 51.4
+    spx_xirr = 25.7
+    diff_dollar = total - spx_value
+    diff_pct = (total / spx_value - 1) * 100
+    spx_bar_pct = spx_value / total * 100
 
     template = f"""<!DOCTYPE html>
 <html lang="lt">
@@ -371,8 +375,8 @@ def render(data):
   </div>
 
   <div class="benchmark">
-    <div class="benchmark-title">Benchmark palyginimas: aktyvus pick vs VWCE</div>
-    <div class="benchmark-hint">Jei tą patį ~${meta['monthlyDCA']:,.0f}/mėn DCA strategija būtum investavęs į Vanguard FTSE All-World UCITS ETF (VWCE) - vieną populiariausių pasaulinių pasyvių indeksų EU rezidentams</div>
+    <div class="benchmark-title">Benchmark palyginimas: aktyvus pick vs S&amp;P 500</div>
+    <div class="benchmark-hint">Jei tą patį ~${meta['monthlyDCA']:,.0f}/mėn DCA strategija būtum investavęs į S&amp;P 500 indeksą (pvz. SPY ETF) - JAV didžiausių 500 įmonių pasyvų indeksą</div>
     <div class="benchmark-rows">
       <div class="benchmark-row you">
         <div class="bk-label">Tavo portfelis</div>
@@ -383,16 +387,16 @@ def render(data):
         </div>
       </div>
       <div class="benchmark-row vwce">
-        <div class="bk-label">VWCE (jei būtum)</div>
-        <div class="bk-bar-wrap"><div class="bk-bar" style="width: {vwce_bar_pct:.1f}%"></div></div>
+        <div class="bk-label">S&amp;P 500 (jei būtum)</div>
+        <div class="bk-bar-wrap"><div class="bk-bar" style="width: {spx_bar_pct:.1f}%"></div></div>
         <div class="bk-right">
-          <div class="bk-value">${vwce_value:,.0f}</div>
-          <div class="bk-meta">+39.4% &bull; XIRR 20.4%/m</div>
+          <div class="bk-value">${spx_value:,.0f}</div>
+          <div class="bk-meta">+{spx_return_pct:.1f}% &bull; XIRR {spx_xirr:.1f}%/m</div>
         </div>
       </div>
     </div>
     <div class="benchmark-summary">
-      Aktyvus stock-picking lenkia VWCE benchmark'ą per <strong>{'+' if diff_dollar >= 0 else ''}${diff_dollar:,.0f} ({'+' if diff_pct >= 0 else ''}{diff_pct:.1f}%)</strong> šiuo periodu
+      Aktyvus stock-picking lenkia S&amp;P 500 benchmark'ą per <strong>{'+' if diff_dollar >= 0 else ''}${diff_dollar:,.0f} ({'+' if diff_pct >= 0 else ''}{diff_pct:.1f}%)</strong> šiuo periodu
     </div>
   </div>
 
