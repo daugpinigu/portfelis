@@ -403,7 +403,7 @@ def render(data):
       </div>
     </div>
     <div class="benchmark-summary">
-      Tavo alpha prieš S&amp;P 500: <strong>+${diff_dollar:,.0f}</strong> &nbsp;|&nbsp; <strong>{diff_multiple:.2f}x</strong> daugiau pelno už tą pačią DCA sumą
+      Prieš S&amp;P 500: <strong>+${diff_dollar:,.0f}</strong> &nbsp;|&nbsp; <strong>+{(diff_dollar/spx_profit*100):.0f}%</strong> daugiau pelno nei S&amp;P 500 grąža per tą patį laikotarpį
     </div>
   </div>
 
