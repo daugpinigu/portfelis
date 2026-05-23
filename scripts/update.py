@@ -553,7 +553,7 @@ def render(data):
   </div>
 
   <div class="section-header">
-    <span>Visos pozicijos</span>
+    <span>Dabartinės pozicijos</span>
     <span class="meta-inline">
       <span id="positionCounter">{active_count} pozicijos &bull; {cat_count} kategorijų</span>
       <button class="filter-reset" id="resetBtn">Rodyti viską</button>
