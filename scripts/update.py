@@ -447,7 +447,7 @@ def render(data):
       </div>
       <div class="hero-text">
         <span class="hero-dollar">+${diff_dollar:,.0f}</span>
-        Tiek daugiau uždirbai nei pasyvi S&amp;P 500 strategija už tą pačią DCA sumą per tą patį laikotarpį.
+        Tiek didesnis uždarbis nei pasyvi S&amp;P 500 strategija už tą pačią DCA sumą per tą patį laikotarpį.
         <span class="hero-sub">Aktyvus pick'inimas davė +{(diff_dollar/spx_profit*100):.0f}% extra grąžą virš S&amp;P 500.</span>
       </div>
     </div>
