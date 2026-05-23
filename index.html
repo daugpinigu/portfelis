@@ -224,7 +224,7 @@
 
   <div class="benchmark projection interactive">
     <div class="benchmark-title">Interaktyvi projekcija <span class="proj-badge">Hipotetinė</span></div>
-    <div class="benchmark-hint">Pajudink slankiklį - kaip skirtumas auga laikui bėgant. Skaičiavimai pagal dabartinį XIRR (38% portfelio vs 26% S&amp;P 500), tęsiant DCA ~$1,332/mėn. Realiai grąža regresuos į vidurkį - matematinė vizualizacija, ne prognozė.</div>
+    <div class="benchmark-hint">Pajudink slankiklį - kaip skirtumas auga laikui bėgant. Tavo portfelis: dabartinis XIRR 38%. S&amp;P 500: ilgalaikis istorinis vidurkis 11% (ne paskutinių 3 metų bull rezultatas). Tęsiant DCA ~$1,332/mėn.</div>
 
     <div class="slider-section">
       <div class="slider-display">
@@ -260,10 +260,12 @@
         <path id="yourLine" stroke="#2dd4bf" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="drop-shadow(0 0 8px rgba(45,212,191,0.5))"></path>
         <circle id="spxDot" r="5" fill="#94a3b8" stroke="#0b1729" stroke-width="2"></circle>
         <circle id="yourDot" r="7" fill="#2dd4bf" stroke="#0b1729" stroke-width="2" filter="drop-shadow(0 0 8px rgba(45,212,191,0.7))"></circle>
+        <text id="yourLabel" fill="#2dd4bf" font-size="14" font-weight="800" text-anchor="end" style="font-family: -apple-system, BlinkMacSystemFont, sans-serif"></text>
+        <text id="spxLabel" fill="#94a3b8" font-size="12" font-weight="700" text-anchor="end" style="font-family: -apple-system, BlinkMacSystemFont, sans-serif"></text>
       </svg>
       <div class="chart-legend">
         <span class="leg you"><span class="dot"></span>Tavo portfelis (XIRR 38%)</span>
-        <span class="leg spx"><span class="dot"></span>S&amp;P 500 (XIRR 26%)</span>
+        <span class="leg spx"><span class="dot"></span>S&amp;P 500 (istorinis 11%)</span>
       </div>
     </div>
 
@@ -328,7 +330,7 @@
         <tr data-category="Pinigai"><td class="tk">Cash</td><td class="cat">Pinigai</td><td class="num">-</td><td class="num">-</td><td class="val">$7,162.68</td></tr>
         <tr data-category="Finansai"><td class="tk">SOFI</td><td class="cat">Finansai</td><td class="num">300</td><td class="num">$21.31<span class="cost">$6,392 inv.</span></td><td class="val neg">$4,686.00<span class="pnl">-1,706 (-27%)</span></td></tr>
         <tr data-category="Finansai"><td class="tk">HOOD</td><td class="cat">Finansai</td><td class="num">60</td><td class="num">$56.27<span class="cost">$3,376 inv.</span></td><td class="val">$4,418.40<span class="pnl">+1,042 (+31%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Bitcoin<span class="sub">BTC</span></td><td class="cat">Kripto</td><td class="num">0.05527</td><td class="num">$33,387.51<span class="cost">$1,845 inv.</span></td><td class="val">$4,129.17<span class="pnl">+2,284 (+124%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Bitcoin<span class="sub">BTC</span></td><td class="cat">Kripto</td><td class="num">0.05527</td><td class="num">$33,387.51<span class="cost">$1,845 inv.</span></td><td class="val">$4,129.55<span class="pnl">+2,284 (+124%)</span></td></tr>
         <tr data-category="Sveikata"><td class="tk">UNH</td><td class="cat">Sveikata</td><td class="num">10</td><td class="num">$293.11<span class="cost">$2,931 inv.</span></td><td class="val">$3,884.70<span class="pnl">+954 (+33%)</span></td></tr>
         <tr data-category="Nasdaq 100 ETF"><td class="tk">ANAU</td><td class="cat">Nasdaq 100 ETF</td><td class="num">150</td><td class="num">$16.22<span class="cost">$2,433 inv.</span></td><td class="val">$3,763.50<span class="pnl">+1,330 (+55%)</span></td></tr>
         <tr data-category="Azijos rinka"><td class="tk">GRAB</td><td class="cat">Azijos rinka</td><td class="num">900</td><td class="num">$4.66<span class="cost">$4,195 inv.</span></td><td class="val neg">$3,159.00<span class="pnl">-1,036 (-25%)</span></td></tr>
@@ -349,7 +351,7 @@
         <tr><th>Tikeris</th><th>Kategorija</th><th class="num">Kiekis</th><th class="num">Avg / Inv.</th><th class="num">Vertė / +/-</th></tr>
       </thead>
       <tbody>
-        <tr data-category="Kripto"><td class="tk">Bittensor<span class="sub">TAO</span></td><td class="cat">Kripto</td><td class="num">2</td><td class="num">$286.10<span class="cost">$572 inv.</span></td><td class="val neg">$521.48<span class="pnl">-51 (-9%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Bittensor<span class="sub">TAO</span></td><td class="cat">Kripto</td><td class="num">2</td><td class="num">$286.10<span class="cost">$572 inv.</span></td><td class="val neg">$521.44<span class="pnl">-51 (-9%)</span></td></tr>
         <tr data-category="Kripto"><td class="tk">Chainlink<span class="sub">LINK</span></td><td class="cat">Kripto</td><td class="num">56.51</td><td class="num">$10.89<span class="cost">$616 inv.</span></td><td class="val neg">$519.86<span class="pnl">-96 (-16%)</span></td></tr>
         <tr data-category="Dividendai"><td class="tk">Divai 2024</td><td class="cat">Dividendai</td><td class="num">-</td><td class="num">-</td><td class="val">$502.98</td></tr>
         <tr data-category="Mažos akcijos"><td class="tk">GME</td><td class="cat">Mažos akcijos</td><td class="num">20</td><td class="num">$17.95<span class="cost">$359 inv.</span></td><td class="val">$439.20<span class="pnl">+80 (+22%)</span></td></tr>
@@ -363,12 +365,12 @@
         <tr data-category="Kripto"><td class="tk">Avalanche<span class="sub">AVAX</span></td><td class="cat">Kripto</td><td class="num">9.28</td><td class="num">$30.31<span class="cost">$281 inv.</span></td><td class="val neg">$82.70<span class="pnl">-199 (-71%)</span></td></tr>
         <tr data-category="Mažos akcijos"><td class="tk">RVPH</td><td class="cat">Mažos akcijos</td><td class="num">200</td><td class="num">$2.85<span class="cost">$570 inv.</span></td><td class="val neg">$82.60<span class="pnl">-487 (-85%)</span></td></tr>
         <tr data-category="Mažos akcijos"><td class="tk">NXL</td><td class="cat">Mažos akcijos</td><td class="num">184</td><td class="num">$2.49<span class="cost">$458 inv.</span></td><td class="val neg">$69.55<span class="pnl">-388 (-85%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Celestia<span class="sub">TIA</span></td><td class="cat">Kripto</td><td class="num">154.38</td><td class="num">$4.07<span class="cost">$629 inv.</span></td><td class="val neg">$61.77<span class="pnl">-567 (-90%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Celestia<span class="sub">TIA</span></td><td class="cat">Kripto</td><td class="num">154.38</td><td class="num">$4.07<span class="cost">$629 inv.</span></td><td class="val neg">$61.75<span class="pnl">-567 (-90%)</span></td></tr>
         <tr data-category="Kripto"><td class="tk">Polygon<span class="sub">MATIC</span></td><td class="cat">Kripto</td><td class="num">587.10</td><td class="num">$0.31<span class="cost">$181 inv.</span></td><td class="val neg">$51.72<span class="pnl">-130 (-71%)</span></td></tr>
         <tr data-category="Mažos akcijos"><td class="tk">BIVI</td><td class="cat">Mažos akcijos</td><td class="num">28.10</td><td class="num">$32.74<span class="cost">$920 inv.</span></td><td class="val neg">$42.71<span class="pnl">-877 (-95%)</span></td></tr>
         <tr data-category="Kripto"><td class="tk">Cosmos<span class="sub">ATOM</span></td><td class="cat">Kripto</td><td class="num">20.88</td><td class="num">$9.96<span class="cost">$208 inv.</span></td><td class="val neg">$42.39<span class="pnl">-166 (-80%)</span></td></tr>
         <tr data-category="Mažos akcijos"><td class="tk">CLDI</td><td class="cat">Mažos akcijos</td><td class="num">100</td><td class="num">$1.12<span class="cost">$112 inv.</span></td><td class="val neg">$17.58<span class="pnl">-94 (-84%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Loopring<span class="sub">LRC</span></td><td class="cat">Kripto</td><td class="num">154.36</td><td class="num">$0.35<span class="cost">$54 inv.</span></td><td class="val neg">$2.44<span class="pnl">-52 (-96%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Loopring<span class="sub">LRC</span></td><td class="cat">Kripto</td><td class="num">154.36</td><td class="num">$0.35<span class="cost">$54 inv.</span></td><td class="val neg">$2.44<span class="pnl">-52 (-95%)</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -387,7 +389,7 @@
   const centerBig = document.getElementById('donutCenterBig');
   const centerSml = document.getElementById('donutCenterSml');
   const allRows = document.querySelectorAll('tbody tr');
-  const TOTAL = 100832.90;
+  const TOTAL = 100833.24;
   const DEFAULT_COUNTER = '37 pozicijos &bull; 11 kategorijų';
   const DEFAULT_BIG = '$101K';
   let activeCategory = null;
@@ -446,11 +448,11 @@
 
 /* Interactive projection chart */
 (function() {
-  const CV = 100832.90;
+  const CV = 100833.24;
   const SV = 82666;
   const PMT = 1332.17;
-  const YR = 0.38495481918379654;
-  const SR = 0.257;
+  const YR = 0.38495703180506813;
+  const SR = 0.11;
   const W = 820, H = 380, PL = 70, PR = 30, PT = 20, PB = 40;
   const innerW = W - PL - PR;
   const innerH = H - PT - PB;
@@ -496,6 +498,14 @@
     document.getElementById('yourDot').setAttribute('cy', yS(yF));
     document.getElementById('spxDot').setAttribute('cx', xS(years));
     document.getElementById('spxDot').setAttribute('cy', yS(sF));
+    const yourLbl = document.getElementById('yourLabel');
+    yourLbl.setAttribute('x', xS(years) - 10);
+    yourLbl.setAttribute('y', yS(yF) - 14);
+    yourLbl.textContent = fmtBig(yF);
+    const spxLbl = document.getElementById('spxLabel');
+    spxLbl.setAttribute('x', xS(years) - 10);
+    spxLbl.setAttribute('y', yS(sF) - 14);
+    spxLbl.textContent = fmtBig(sF);
 
     let gridH = '', yLab = '';
     const N = 5;

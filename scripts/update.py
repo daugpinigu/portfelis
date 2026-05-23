@@ -233,6 +233,8 @@ def render(data):
     spx_value = 82666
     spx_return_pct = 51.4
     spx_xirr = 25.7
+    # Long-term historical S&P 500 average return (for projections - more realistic than recent 3Y bull)
+    spx_xirr_long_term = 11.0
     spx_profit = spx_value - invested
     your_profit = total - invested
     diff_dollar = your_profit - spx_profit
@@ -251,7 +253,7 @@ def render(data):
     proj_months = 120
     proj_pmt = meta['monthlyDCA']
     your_proj = fv_dca(total, proj_pmt, xirr_r/100, proj_months)
-    spx_proj = fv_dca(spx_value, proj_pmt, spx_xirr/100, proj_months)
+    spx_proj = fv_dca(spx_value, proj_pmt, spx_xirr_long_term/100, proj_months)
     proj_total_invested_future = invested + proj_pmt * proj_months
     your_proj_profit = your_proj - proj_total_invested_future
     spx_proj_profit = spx_proj - proj_total_invested_future
@@ -482,7 +484,7 @@ def render(data):
 
   <div class="benchmark projection interactive">
     <div class="benchmark-title">Interaktyvi projekcija <span class="proj-badge">Hipotetinė</span></div>
-    <div class="benchmark-hint">Pajudink slankiklį - kaip skirtumas auga laikui bėgant. Skaičiavimai pagal dabartinį XIRR ({xirr_r:.0f}% portfelio vs {spx_xirr:.0f}% S&amp;P 500), tęsiant DCA ~${meta['monthlyDCA']:,.0f}/mėn. Realiai grąža regresuos į vidurkį - matematinė vizualizacija, ne prognozė.</div>
+    <div class="benchmark-hint">Pajudink slankiklį - kaip skirtumas auga laikui bėgant. Tavo portfelis: dabartinis XIRR {xirr_r:.0f}%. S&amp;P 500: ilgalaikis istorinis vidurkis {spx_xirr_long_term:.0f}% (ne paskutinių 3 metų bull rezultatas). Tęsiant DCA ~${meta['monthlyDCA']:,.0f}/mėn.</div>
 
     <div class="slider-section">
       <div class="slider-display">
@@ -518,10 +520,12 @@ def render(data):
         <path id="yourLine" stroke="#2dd4bf" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="drop-shadow(0 0 8px rgba(45,212,191,0.5))"></path>
         <circle id="spxDot" r="5" fill="#94a3b8" stroke="#0b1729" stroke-width="2"></circle>
         <circle id="yourDot" r="7" fill="#2dd4bf" stroke="#0b1729" stroke-width="2" filter="drop-shadow(0 0 8px rgba(45,212,191,0.7))"></circle>
+        <text id="yourLabel" fill="#2dd4bf" font-size="14" font-weight="800" text-anchor="end" style="font-family: -apple-system, BlinkMacSystemFont, sans-serif"></text>
+        <text id="spxLabel" fill="#94a3b8" font-size="12" font-weight="700" text-anchor="end" style="font-family: -apple-system, BlinkMacSystemFont, sans-serif"></text>
       </svg>
       <div class="chart-legend">
         <span class="leg you"><span class="dot"></span>Tavo portfelis (XIRR {xirr_r:.0f}%)</span>
-        <span class="leg spx"><span class="dot"></span>S&amp;P 500 (XIRR {spx_xirr:.0f}%)</span>
+        <span class="leg spx"><span class="dot"></span>S&amp;P 500 (istorinis {spx_xirr_long_term:.0f}%)</span>
       </div>
     </div>
 
@@ -659,7 +663,7 @@ def render(data):
   const SV = {spx_value};
   const PMT = {meta['monthlyDCA']};
   const YR = {xirr_r/100};
-  const SR = {spx_xirr/100};
+  const SR = {spx_xirr_long_term/100};
   const W = 820, H = 380, PL = 70, PR = 30, PT = 20, PB = 40;
   const innerW = W - PL - PR;
   const innerH = H - PT - PB;
@@ -705,6 +709,14 @@ def render(data):
     document.getElementById('yourDot').setAttribute('cy', yS(yF));
     document.getElementById('spxDot').setAttribute('cx', xS(years));
     document.getElementById('spxDot').setAttribute('cy', yS(sF));
+    const yourLbl = document.getElementById('yourLabel');
+    yourLbl.setAttribute('x', xS(years) - 10);
+    yourLbl.setAttribute('y', yS(yF) - 14);
+    yourLbl.textContent = fmtBig(yF);
+    const spxLbl = document.getElementById('spxLabel');
+    spxLbl.setAttribute('x', xS(years) - 10);
+    spxLbl.setAttribute('y', yS(sF) - 14);
+    spxLbl.textContent = fmtBig(sF);
 
     let gridH = '', yLab = '';
     const N = 5;
