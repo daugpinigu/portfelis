@@ -304,20 +304,31 @@ def render(data):
   .benchmark-row {{ display: grid; grid-template-columns: 160px 1fr 140px; align-items: center; gap: 20px; }}
   .benchmark-row .bk-label {{ color: #cfd8e3; font-size: 13px; font-weight: 600; }}
   .benchmark-row.you .bk-label {{ color: var(--accent); }}
-  .benchmark-row .bk-bar-wrap {{ height: 38px; background: #14253e; border-radius: 4px; position: relative; overflow: hidden; }}
-  .benchmark-row .bk-bar {{ position: absolute; top: 0; bottom: 0; left: 0; border-radius: 4px; transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); }}
-  .benchmark-row.you .bk-bar {{ background: linear-gradient(90deg, var(--accent) 0%, #5eead4 100%); box-shadow: 0 0 24px rgba(45,212,191,0.4); }}
-  .benchmark-row.vwce .bk-bar {{ background: linear-gradient(90deg, #475569 0%, #64748b 100%); opacity: 0.85; }}
+  .benchmark-row .bk-bar-wrap {{ height: 52px; background: #14253e; border-radius: 6px; position: relative; overflow: hidden; }}
+  .benchmark-row .bk-bar {{ position: absolute; top: 0; bottom: 0; left: 0; border-radius: 6px; transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1); animation: barGrow 1s cubic-bezier(0.4, 0, 0.2, 1); }}
+  @keyframes barGrow {{ from {{ width: 0 !important; }} }}
+  .benchmark-row.you .bk-bar {{ background: linear-gradient(90deg, var(--accent) 0%, #5eead4 50%, #99f6e4 100%); box-shadow: 0 0 32px rgba(45,212,191,0.55), inset 0 1px 0 rgba(255,255,255,0.2); }}
+  .benchmark-row.you .bk-bar::after {{ content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, rgba(255,255,255,0.18), transparent); border-radius: 6px 6px 0 0; }}
+  .benchmark-row.vwce .bk-bar {{ background: linear-gradient(90deg, #475569 0%, #64748b 100%); opacity: 0.7; }}
   .benchmark-row .bk-right {{ text-align: right; }}
-  .benchmark-row .bk-value {{ font-size: 19px; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; line-height: 1; }}
-  .benchmark-row .bk-meta {{ display: block; font-size: 10.5px; color: var(--muted); font-weight: 500; margin-top: 4px; letter-spacing: 0.3px; }}
-  .benchmark-summary {{ padding-top: 22px; border-top: 1px solid var(--line); font-size: 14px; color: #cfd8e3; text-align: center; letter-spacing: 0.2px; }}
-  .benchmark-summary strong {{ color: var(--accent); font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.3px; }}
+  .benchmark-row .bk-value {{ font-size: 34px; font-weight: 900; color: #fff; font-variant-numeric: tabular-nums; line-height: 1; letter-spacing: -1.2px; }}
+  .benchmark-row.you .bk-value {{ background: linear-gradient(135deg, #2dd4bf 0%, #5eead4 60%, #fff 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }}
+  .benchmark-row .bk-meta {{ display: block; font-size: 11px; color: var(--muted); font-weight: 500; margin-top: 6px; letter-spacing: 0.4px; }}
+  .benchmark-row {{ grid-template-columns: 170px 1fr 180px !important; gap: 24px !important; }}
+  .benchmark-rows {{ gap: 18px !important; }}
+  .hero-callout {{ margin-top: 24px; padding: 22px 24px; background: linear-gradient(135deg, rgba(45,212,191,0.12), rgba(45,212,191,0.04)); border-radius: 8px; border: 1px solid rgba(45,212,191,0.25); display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }}
+  .hero-multiplier {{ text-align: center; }}
+  .hero-multiplier .x-big {{ font-size: 68px; font-weight: 900; line-height: 0.9; letter-spacing: -3px; background: linear-gradient(135deg, #2dd4bf 0%, #5eead4 50%, #99f6e4 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 32px rgba(45,212,191,0.4); }}
+  .hero-multiplier .x-label {{ font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-top: 4px; }}
+  .hero-text {{ font-size: 14px; color: #cfd8e3; line-height: 1.55; }}
+  .hero-text .hero-dollar {{ display: block; font-size: 28px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: -0.8px; line-height: 1; margin-bottom: 6px; }}
+  .hero-text .hero-sub {{ color: var(--muted); font-size: 12.5px; }}
   .benchmark-rows {{ position: relative; }}
   .benchmark-row.vwce .bk-value {{ color: #94a3b8; }}
   .benchmark-row.vwce .bk-label {{ color: #94a3b8; }}
-  .benchmark.projection {{ border-color: rgba(45,212,191,0.25); background: linear-gradient(135deg, var(--bg-card), #0d1f3a); }}
-  .proj-badge {{ display: inline-block; padding: 2px 8px; margin-left: 10px; background: rgba(45,212,191,0.15); color: var(--accent); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; border-radius: 3px; vertical-align: middle; }}
+  .benchmark.projection {{ border-color: rgba(45,212,191,0.3); background: linear-gradient(135deg, var(--bg-card) 0%, #0d2240 100%); }}
+  .benchmark.projection .hero-multiplier .x-big {{ font-size: 80px; }}
+  .proj-badge {{ display: inline-block; padding: 3px 10px; margin-left: 10px; background: rgba(45,212,191,0.2); color: var(--accent); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; border-radius: 4px; vertical-align: middle; }}
   .alloc-section {{ margin-bottom: 40px; padding: 32px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--line); }}
   .alloc-title {{ color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 6px; }}
   .alloc-hint {{ color: var(--muted); font-size: 11.5px; margin-bottom: 24px; opacity: 0.7; }}
@@ -429,8 +440,16 @@ def render(data):
         </div>
       </div>
     </div>
-    <div class="benchmark-summary">
-      Prieš S&amp;P 500: <strong>+${diff_dollar:,.0f}</strong> &nbsp;|&nbsp; <strong>+{(diff_dollar/spx_profit*100):.0f}%</strong> daugiau pelno nei S&amp;P 500 grąža per tą patį laikotarpį
+    <div class="hero-callout">
+      <div class="hero-multiplier">
+        <div class="x-big">{diff_multiple:.1f}x</div>
+        <div class="x-label">daugiau pelno</div>
+      </div>
+      <div class="hero-text">
+        <span class="hero-dollar">+${diff_dollar:,.0f}</span>
+        Tiek daugiau uždirbai nei pasyvi S&amp;P 500 strategija už tą pačią DCA sumą per tą patį laikotarpį.
+        <span class="hero-sub">Aktyvus pick'inimas davė +{(diff_dollar/spx_profit*100):.0f}% extra grąžą virš S&amp;P 500.</span>
+      </div>
     </div>
   </div>
 
@@ -455,8 +474,16 @@ def render(data):
         </div>
       </div>
     </div>
-    <div class="benchmark-summary">
-      Po 10 metų skirtumas: <strong>+{fmt_big(proj_diff_dollar)}</strong> &nbsp;|&nbsp; <strong>+{proj_diff_pct:.0f}%</strong> daugiau nei S&amp;P 500 scenarijuje
+    <div class="hero-callout">
+      <div class="hero-multiplier">
+        <div class="x-big">{(your_proj/spx_proj):.1f}x</div>
+        <div class="x-label">daugiau po 10 m.</div>
+      </div>
+      <div class="hero-text">
+        <span class="hero-dollar">+{fmt_big(proj_diff_dollar)}</span>
+        Tiek daugiau pinigų po 10 metų lyginant su pasyvia S&amp;P 500 strategija (jei dabartinis XIRR išliks).
+        <span class="hero-sub">Skirtumas auga eksponentiškai dėl compound efekto - kiekvienas % alpha virsta milijonais ilgu laikotarpiu.</span>
+      </div>
     </div>
   </div>
 
