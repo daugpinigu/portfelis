@@ -329,6 +329,30 @@ def render(data):
   .benchmark.projection {{ border-color: rgba(45,212,191,0.3); background: linear-gradient(135deg, var(--bg-card) 0%, #0d2240 100%); }}
   .benchmark.projection .hero-multiplier .x-big {{ font-size: 80px; }}
   .proj-badge {{ display: inline-block; padding: 3px 10px; margin-left: 10px; background: rgba(45,212,191,0.2); color: var(--accent); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; border-radius: 4px; vertical-align: middle; }}
+  /* Interactive projection */
+  .slider-section {{ display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: center; margin: 24px 0 12px; padding: 20px 24px; background: rgba(45,212,191,0.04); border-radius: 8px; border: 1px solid rgba(45,212,191,0.15); }}
+  .slider-display {{ text-align: center; }}
+  .slider-display .slider-num {{ font-size: 56px; font-weight: 900; letter-spacing: -2.5px; line-height: 1; background: linear-gradient(135deg, #2dd4bf 0%, #5eead4 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: block; }}
+  .slider-display .slider-unit {{ display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-top: 4px; }}
+  .slider-wrap {{ width: 100%; }}
+  input[type=range].slider {{ -webkit-appearance: none; appearance: none; width: 100%; height: 8px; background: linear-gradient(to right, var(--accent) 0%, var(--accent) 31%, #1a2d4a 31%, #1a2d4a 100%); border-radius: 4px; outline: none; cursor: pointer; }}
+  input[type=range].slider::-webkit-slider-thumb {{ -webkit-appearance: none; appearance: none; width: 24px; height: 24px; background: var(--accent); border-radius: 50%; cursor: grab; box-shadow: 0 0 0 4px rgba(45,212,191,0.2), 0 0 24px rgba(45,212,191,0.4); transition: transform 0.1s; }}
+  input[type=range].slider::-webkit-slider-thumb:active {{ cursor: grabbing; transform: scale(1.15); }}
+  input[type=range].slider::-moz-range-thumb {{ width: 24px; height: 24px; background: var(--accent); border-radius: 50%; cursor: grab; border: none; box-shadow: 0 0 0 4px rgba(45,212,191,0.2), 0 0 24px rgba(45,212,191,0.4); }}
+  .slider-marks {{ display: flex; justify-content: space-between; margin-top: 12px; font-size: 10px; color: var(--muted); letter-spacing: 0.5px; }}
+  .slider-marks span {{ cursor: pointer; transition: color 0.15s; padding: 2px 4px; }}
+  .slider-marks span:hover {{ color: var(--accent); }}
+  .chart-wrap {{ margin: 28px 0 20px; padding: 16px 8px 8px; background: rgba(11,23,41,0.4); border-radius: 8px; border: 1px solid var(--line); }}
+  .chart {{ width: 100%; height: auto; display: block; }}
+  .chart-legend {{ display: flex; gap: 24px; justify-content: center; margin-top: 12px; font-size: 12px; color: #cfd8e3; }}
+  .chart-legend .leg {{ display: flex; align-items: center; gap: 8px; }}
+  .chart-legend .leg .dot {{ width: 12px; height: 12px; border-radius: 50%; }}
+  .chart-legend .leg.you .dot {{ background: var(--accent); box-shadow: 0 0 8px rgba(45,212,191,0.6); }}
+  .chart-legend .leg.spx .dot {{ background: #94a3b8; }}
+  @media (max-width: 880px) {{
+    .slider-section {{ grid-template-columns: 1fr; gap: 16px; }}
+    .slider-display .slider-num {{ font-size: 42px; }}
+  }}
   .alloc-section {{ margin-bottom: 40px; padding: 32px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--line); }}
   .alloc-title {{ color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 6px; }}
   .alloc-hint {{ color: var(--muted); font-size: 11.5px; margin-bottom: 24px; opacity: 0.7; }}
@@ -453,36 +477,60 @@ def render(data):
     </div>
   </div>
 
-  <div class="benchmark projection">
-    <div class="benchmark-title">10 metų projekcija <span class="proj-badge">Hipotetinė</span></div>
-    <div class="benchmark-hint">Jei tęsi DCA ~${meta['monthlyDCA']:,.0f}/mėn ir grąža lieka tokia pat (~{xirr_r:.0f}% XIRR), tavo portfelio vertė po 10 metų vs jei tą patį būtum daręs S&amp;P 500 indekse (~{spx_xirr:.0f}% XIRR). Realiai grąža regresuos į vidurkį - tai matematinė vizualizacija, ne prognozė.</div>
-    <div class="benchmark-rows">
-      <div class="benchmark-row you">
-        <div class="bk-label">Tavo (po 10 m.)</div>
-        <div class="bk-bar-wrap"><div class="bk-bar" style="width: 100%"></div></div>
-        <div class="bk-right">
-          <div class="bk-value">{fmt_big(your_proj)}</div>
-          <div class="bk-meta">+{xirr_r:.1f}% XIRR tęsiamas</div>
-        </div>
+  <div class="benchmark projection interactive">
+    <div class="benchmark-title">Interaktyvi projekcija <span class="proj-badge">Hipotetinė</span></div>
+    <div class="benchmark-hint">Pajudink slankiklį - kaip skirtumas auga laikui bėgant. Skaičiavimai pagal dabartinį XIRR ({xirr_r:.0f}% portfelio vs {spx_xirr:.0f}% S&amp;P 500), tęsiant DCA ~${meta['monthlyDCA']:,.0f}/mėn. Realiai grąža regresuos į vidurkį - matematinė vizualizacija, ne prognozė.</div>
+
+    <div class="slider-section">
+      <div class="slider-display">
+        <span class="slider-num" id="yearVal">10</span>
+        <span class="slider-unit">metų horizontas</span>
       </div>
-      <div class="benchmark-row vwce">
-        <div class="bk-label">S&amp;P 500 (po 10 m.)</div>
-        <div class="bk-bar-wrap"><div class="bk-bar" style="width: {spx_proj_bar:.1f}%"></div></div>
-        <div class="bk-right">
-          <div class="bk-value">{fmt_big(spx_proj)}</div>
-          <div class="bk-meta">+{spx_xirr:.1f}% XIRR tęsiamas</div>
+      <div class="slider-wrap">
+        <input type="range" min="1" max="30" value="10" step="1" id="yearSlider" class="slider"/>
+        <div class="slider-marks">
+          <span data-y="1">1m</span><span data-y="5">5m</span><span data-y="10">10m</span><span data-y="15">15m</span><span data-y="20">20m</span><span data-y="25">25m</span><span data-y="30">30m</span>
         </div>
       </div>
     </div>
+
+    <div class="chart-wrap">
+      <svg viewBox="0 0 820 380" class="chart" id="chart" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="youGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="spxGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#64748b" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#64748b" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g id="gridGroup"></g>
+        <g id="yLabels"></g>
+        <g id="xLabels"></g>
+        <path id="spxArea" fill="url(#spxGrad)"></path>
+        <path id="yourArea" fill="url(#youGrad)"></path>
+        <path id="spxLine" stroke="#94a3b8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path id="yourLine" stroke="#2dd4bf" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="drop-shadow(0 0 8px rgba(45,212,191,0.5))"></path>
+        <circle id="spxDot" r="5" fill="#94a3b8" stroke="#0b1729" stroke-width="2"></circle>
+        <circle id="yourDot" r="7" fill="#2dd4bf" stroke="#0b1729" stroke-width="2" filter="drop-shadow(0 0 8px rgba(45,212,191,0.7))"></circle>
+      </svg>
+      <div class="chart-legend">
+        <span class="leg you"><span class="dot"></span>Tavo portfelis (XIRR {xirr_r:.0f}%)</span>
+        <span class="leg spx"><span class="dot"></span>S&amp;P 500 (XIRR {spx_xirr:.0f}%)</span>
+      </div>
+    </div>
+
     <div class="hero-callout">
       <div class="hero-multiplier">
-        <div class="x-big">{(your_proj/spx_proj):.1f}x</div>
-        <div class="x-label">daugiau po 10 m.</div>
+        <div class="x-big" id="heroMult">2.7x</div>
+        <div class="x-label">daugiau po <span id="heroYears">10</span> m.</div>
       </div>
       <div class="hero-text">
-        <span class="hero-dollar">+{fmt_big(proj_diff_dollar)}</span>
-        Tiek daugiau pinigų po 10 metų lyginant su pasyvia S&amp;P 500 strategija (jei dabartinis XIRR išliks).
-        <span class="hero-sub">Skirtumas auga eksponentiškai dėl compound efekto - kiekvienas % alpha virsta dideliu skirtumu ilgu laikotarpiu.</span>
+        <span class="hero-dollar" id="heroDiff">+$2.42M</span>
+        Portfelio vertė <span id="heroYourVal">$3.86M</span> vs S&amp;P 500 scenarijus <span id="heroSpxVal">$1.44M</span> - skirtumas auga eksponentiškai dėl compound efekto.
+        <span class="hero-sub">Aktyvus pick'inimas duoda <span id="heroPct">168%</span> didesnį rezultatą po <span id="heroYearsLabel">10</span> metų.</span>
       </div>
     </div>
   </div>
@@ -600,6 +648,103 @@ def render(data):
   document.addEventListener('keydown', (e) => {{
     if (e.key === 'Escape' && activeCategory) applyFilter(null);
   }});
+}})();
+
+/* Interactive projection chart */
+(function() {{
+  const CV = {total:.2f};
+  const SV = {spx_value};
+  const PMT = {meta['monthlyDCA']};
+  const YR = {xirr_r/100};
+  const SR = {spx_xirr/100};
+  const W = 820, H = 380, PL = 70, PR = 30, PT = 20, PB = 40;
+  const innerW = W - PL - PR;
+  const innerH = H - PT - PB;
+  const slider = document.getElementById('yearSlider');
+  if (!slider) return;
+
+  function fvDCA(pv, pmt, ar, months) {{
+    if (months <= 0) return pv;
+    const mr = Math.pow(1 + ar, 1/12) - 1;
+    return pv * Math.pow(1 + mr, months) + pmt * (Math.pow(1 + mr, months) - 1) / mr * (1 + mr);
+  }}
+
+  function fmtBig(v) {{
+    if (v >= 1e6) return '$' + (v/1e6).toFixed(2).replace(/\.?0+$/, '') + 'M';
+    if (v >= 1e3) return '$' + Math.round(v/1e3).toLocaleString('en-US') + 'K';
+    return '$' + Math.round(v).toLocaleString('en-US');
+  }}
+
+  function render(years) {{
+    const months = years * 12;
+    const steps = Math.min(160, Math.max(months, 40));
+    const yourPts = [], spxPts = [];
+    for (let i = 0; i <= steps; i++) {{
+      const m = (months / steps) * i;
+      yourPts.push({{x: m/12, y: fvDCA(CV, PMT, YR, m)}});
+      spxPts.push({{x: m/12, y: fvDCA(SV, PMT, SR, m)}});
+    }}
+    const yF = yourPts[yourPts.length-1].y;
+    const sF = spxPts[spxPts.length-1].y;
+    const yMax = yF * 1.08;
+
+    const xS = x => PL + (x / years) * innerW;
+    const yS = y => PT + innerH - (y / yMax) * innerH;
+
+    const pathStr = pts => pts.map((p,i) => (i===0?'M':'L') + ' ' + xS(p.x).toFixed(1) + ' ' + yS(p.y).toFixed(1)).join(' ');
+    const areaStr = pts => pathStr(pts) + ' L ' + xS(years).toFixed(1) + ' ' + yS(0).toFixed(1) + ' L ' + xS(0).toFixed(1) + ' ' + yS(0).toFixed(1) + ' Z';
+
+    document.getElementById('yourLine').setAttribute('d', pathStr(yourPts));
+    document.getElementById('spxLine').setAttribute('d', pathStr(spxPts));
+    document.getElementById('yourArea').setAttribute('d', areaStr(yourPts));
+    document.getElementById('spxArea').setAttribute('d', areaStr(spxPts));
+    document.getElementById('yourDot').setAttribute('cx', xS(years));
+    document.getElementById('yourDot').setAttribute('cy', yS(yF));
+    document.getElementById('spxDot').setAttribute('cx', xS(years));
+    document.getElementById('spxDot').setAttribute('cy', yS(sF));
+
+    let gridH = '', yLab = '';
+    const N = 5;
+    for (let i = 0; i <= N; i++) {{
+      const v = (yMax / N) * i;
+      const y = yS(v);
+      gridH += '<line x1="' + PL + '" y1="' + y + '" x2="' + (W-PR) + '" y2="' + y + '" stroke="#1a2d4a" stroke-width="0.5"/>';
+      yLab += '<text x="' + (PL-10) + '" y="' + (y+4) + '" fill="#6b8197" font-size="11" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, sans-serif">' + fmtBig(v) + '</text>';
+    }}
+    document.getElementById('gridGroup').innerHTML = gridH;
+    document.getElementById('yLabels').innerHTML = yLab;
+
+    let xLab = '';
+    const xN = Math.min(years, 6);
+    for (let i = 0; i <= xN; i++) {{
+      const yr = (years / xN) * i;
+      const x = xS(yr);
+      xLab += '<text x="' + x + '" y="' + (H-PB+22) + '" fill="#6b8197" font-size="11" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif">' + yr.toFixed(0) + 'm</text>';
+    }}
+    document.getElementById('xLabels').innerHTML = xLab;
+
+    const sp = ((years - 1) / 29 * 100).toFixed(1);
+    slider.style.background = 'linear-gradient(to right, #2dd4bf 0%, #2dd4bf ' + sp + '%, #1a2d4a ' + sp + '%, #1a2d4a 100%)';
+
+    document.getElementById('yearVal').textContent = years;
+    document.getElementById('heroMult').textContent = (yF/sF).toFixed(1) + 'x';
+    document.getElementById('heroYears').textContent = years;
+    document.getElementById('heroYearsLabel').textContent = years;
+    document.getElementById('heroDiff').textContent = '+' + fmtBig(yF - sF);
+    document.getElementById('heroYourVal').textContent = fmtBig(yF);
+    document.getElementById('heroSpxVal').textContent = fmtBig(sF);
+    document.getElementById('heroPct').textContent = ((yF/sF - 1) * 100).toFixed(0) + '%';
+  }}
+
+  slider.addEventListener('input', e => render(parseInt(e.target.value)));
+  document.querySelectorAll('.slider-marks span').forEach(s => {{
+    s.addEventListener('click', () => {{
+      const y = parseInt(s.dataset.y);
+      slider.value = y;
+      render(y);
+    }});
+  }});
+  render(10);
 }})();
 </script>
 </body>

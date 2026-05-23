@@ -61,6 +61,30 @@
   .benchmark.projection { border-color: rgba(45,212,191,0.3); background: linear-gradient(135deg, var(--bg-card) 0%, #0d2240 100%); }
   .benchmark.projection .hero-multiplier .x-big { font-size: 80px; }
   .proj-badge { display: inline-block; padding: 3px 10px; margin-left: 10px; background: rgba(45,212,191,0.2); color: var(--accent); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; border-radius: 4px; vertical-align: middle; }
+  /* Interactive projection */
+  .slider-section { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: center; margin: 24px 0 12px; padding: 20px 24px; background: rgba(45,212,191,0.04); border-radius: 8px; border: 1px solid rgba(45,212,191,0.15); }
+  .slider-display { text-align: center; }
+  .slider-display .slider-num { font-size: 56px; font-weight: 900; letter-spacing: -2.5px; line-height: 1; background: linear-gradient(135deg, #2dd4bf 0%, #5eead4 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: block; }
+  .slider-display .slider-unit { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-top: 4px; }
+  .slider-wrap { width: 100%; }
+  input[type=range].slider { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; background: linear-gradient(to right, var(--accent) 0%, var(--accent) 31%, #1a2d4a 31%, #1a2d4a 100%); border-radius: 4px; outline: none; cursor: pointer; }
+  input[type=range].slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; background: var(--accent); border-radius: 50%; cursor: grab; box-shadow: 0 0 0 4px rgba(45,212,191,0.2), 0 0 24px rgba(45,212,191,0.4); transition: transform 0.1s; }
+  input[type=range].slider::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.15); }
+  input[type=range].slider::-moz-range-thumb { width: 24px; height: 24px; background: var(--accent); border-radius: 50%; cursor: grab; border: none; box-shadow: 0 0 0 4px rgba(45,212,191,0.2), 0 0 24px rgba(45,212,191,0.4); }
+  .slider-marks { display: flex; justify-content: space-between; margin-top: 12px; font-size: 10px; color: var(--muted); letter-spacing: 0.5px; }
+  .slider-marks span { cursor: pointer; transition: color 0.15s; padding: 2px 4px; }
+  .slider-marks span:hover { color: var(--accent); }
+  .chart-wrap { margin: 28px 0 20px; padding: 16px 8px 8px; background: rgba(11,23,41,0.4); border-radius: 8px; border: 1px solid var(--line); }
+  .chart { width: 100%; height: auto; display: block; }
+  .chart-legend { display: flex; gap: 24px; justify-content: center; margin-top: 12px; font-size: 12px; color: #cfd8e3; }
+  .chart-legend .leg { display: flex; align-items: center; gap: 8px; }
+  .chart-legend .leg .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .chart-legend .leg.you .dot { background: var(--accent); box-shadow: 0 0 8px rgba(45,212,191,0.6); }
+  .chart-legend .leg.spx .dot { background: #94a3b8; }
+  @media (max-width: 880px) {
+    .slider-section { grid-template-columns: 1fr; gap: 16px; }
+    .slider-display .slider-num { font-size: 42px; }
+  }
   .alloc-section { margin-bottom: 40px; padding: 32px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--line); }
   .alloc-title { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 6px; }
   .alloc-hint { color: var(--muted); font-size: 11.5px; margin-bottom: 24px; opacity: 0.7; }
@@ -71,8 +95,8 @@
       #60a5fa 50.87% 59.90%,
       #94a3b8 59.90% 67.01%,
       #fb923c 67.01% 73.24%,
-      #ef4444 73.24% 79.02%,
-      #f59e0b 79.02% 83.66%,
+      #ef4444 73.24% 79.03%,
+      #f59e0b 79.03% 83.66%,
       #a855f7 83.66% 88.29%,
       #22c55e 88.29% 92.14%,
       #818cf8 92.14% 95.87%,
@@ -142,7 +166,7 @@
     <div class="perf-item">
       <div class="perf-label">Bendras pelnas</div>
       <div class="perf-value pos">+84.6%</div>
-      <div class="perf-sub">+$46,208</div>
+      <div class="perf-sub">+$46,210</div>
     </div>
     <div class="perf-item">
       <div class="perf-label">Metinė grąža (XIRR)</div>
@@ -156,7 +180,7 @@
     </div>
     <div class="perf-item">
       <div class="perf-label">Vertė šiandien</div>
-      <div class="perf-value">$100,827</div>
+      <div class="perf-value">$100,829</div>
       <div class="perf-sub">2023.01 - 2026.05</div>
     </div>
   </div>
@@ -169,8 +193,8 @@
         <div class="bk-label">Tavo pelnas</div>
         <div class="bk-bar-wrap"><div class="bk-bar" style="width: 100.0%"></div></div>
         <div class="bk-right">
-          <div class="bk-value">+$46,208</div>
-          <div class="bk-meta">+84.6% &bull; vertė $100,827</div>
+          <div class="bk-value">+$46,210</div>
+          <div class="bk-meta">+84.6% &bull; vertė $100,829</div>
         </div>
       </div>
       <div class="benchmark-row vwce">
@@ -188,43 +212,67 @@
         <div class="x-label">daugiau pelno</div>
       </div>
       <div class="hero-text">
-        <span class="hero-dollar">+$18,161</span>
+        <span class="hero-dollar">+$18,163</span>
         Tiek didesnis uždarbis nei pasyvi S&amp;P 500 strategija už tą pačią DCA sumą per tą patį laikotarpį.
         <span class="hero-sub">Aktyvus pick'inimas davė +65% extra grąžą virš S&amp;P 500.</span>
       </div>
     </div>
   </div>
 
-  <div class="benchmark projection">
-    <div class="benchmark-title">10 metų projekcija <span class="proj-badge">Hipotetinė</span></div>
-    <div class="benchmark-hint">Jei tęsi DCA ~$1,332/mėn ir grąža lieka tokia pat (~38% XIRR), tavo portfelio vertė po 10 metų vs jei tą patį būtum daręs S&amp;P 500 indekse (~26% XIRR). Realiai grąža regresuos į vidurkį - tai matematinė vizualizacija, ne prognozė.</div>
-    <div class="benchmark-rows">
-      <div class="benchmark-row you">
-        <div class="bk-label">Tavo (po 10 m.)</div>
-        <div class="bk-bar-wrap"><div class="bk-bar" style="width: 100%"></div></div>
-        <div class="bk-right">
-          <div class="bk-value">$3.86M</div>
-          <div class="bk-meta">+38.5% XIRR tęsiamas</div>
-        </div>
+  <div class="benchmark projection interactive">
+    <div class="benchmark-title">Interaktyvi projekcija <span class="proj-badge">Hipotetinė</span></div>
+    <div class="benchmark-hint">Pajudink slankiklį - kaip skirtumas auga laikui bėgant. Skaičiavimai pagal dabartinį XIRR (38% portfelio vs 26% S&amp;P 500), tęsiant DCA ~$1,332/mėn. Realiai grąža regresuos į vidurkį - matematinė vizualizacija, ne prognozė.</div>
+
+    <div class="slider-section">
+      <div class="slider-display">
+        <span class="slider-num" id="yearVal">10</span>
+        <span class="slider-unit">metų horizontas</span>
       </div>
-      <div class="benchmark-row vwce">
-        <div class="bk-label">S&amp;P 500 (po 10 m.)</div>
-        <div class="bk-bar-wrap"><div class="bk-bar" style="width: 37.3%"></div></div>
-        <div class="bk-right">
-          <div class="bk-value">$1.44M</div>
-          <div class="bk-meta">+25.7% XIRR tęsiamas</div>
+      <div class="slider-wrap">
+        <input type="range" min="1" max="30" value="10" step="1" id="yearSlider" class="slider"/>
+        <div class="slider-marks">
+          <span data-y="1">1m</span><span data-y="5">5m</span><span data-y="10">10m</span><span data-y="15">15m</span><span data-y="20">20m</span><span data-y="25">25m</span><span data-y="30">30m</span>
         </div>
       </div>
     </div>
+
+    <div class="chart-wrap">
+      <svg viewBox="0 0 820 380" class="chart" id="chart" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="youGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="spxGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#64748b" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#64748b" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g id="gridGroup"></g>
+        <g id="yLabels"></g>
+        <g id="xLabels"></g>
+        <path id="spxArea" fill="url(#spxGrad)"></path>
+        <path id="yourArea" fill="url(#youGrad)"></path>
+        <path id="spxLine" stroke="#94a3b8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path id="yourLine" stroke="#2dd4bf" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="drop-shadow(0 0 8px rgba(45,212,191,0.5))"></path>
+        <circle id="spxDot" r="5" fill="#94a3b8" stroke="#0b1729" stroke-width="2"></circle>
+        <circle id="yourDot" r="7" fill="#2dd4bf" stroke="#0b1729" stroke-width="2" filter="drop-shadow(0 0 8px rgba(45,212,191,0.7))"></circle>
+      </svg>
+      <div class="chart-legend">
+        <span class="leg you"><span class="dot"></span>Tavo portfelis (XIRR 38%)</span>
+        <span class="leg spx"><span class="dot"></span>S&amp;P 500 (XIRR 26%)</span>
+      </div>
+    </div>
+
     <div class="hero-callout">
       <div class="hero-multiplier">
-        <div class="x-big">2.7x</div>
-        <div class="x-label">daugiau po 10 m.</div>
+        <div class="x-big" id="heroMult">2.7x</div>
+        <div class="x-label">daugiau po <span id="heroYears">10</span> m.</div>
       </div>
       <div class="hero-text">
-        <span class="hero-dollar">+$2.42M</span>
-        Tiek daugiau pinigų po 10 metų lyginant su pasyvia S&amp;P 500 strategija (jei dabartinis XIRR išliks).
-        <span class="hero-sub">Skirtumas auga eksponentiškai dėl compound efekto - kiekvienas % alpha virsta dideliu skirtumu ilgu laikotarpiu.</span>
+        <span class="hero-dollar" id="heroDiff">+$2.42M</span>
+        Portfelio vertė <span id="heroYourVal">$3.86M</span> vs S&amp;P 500 scenarijus <span id="heroSpxVal">$1.44M</span> - skirtumas auga eksponentiškai dėl compound efekto.
+        <span class="hero-sub">Aktyvus pick'inimas duoda <span id="heroPct">168%</span> didesnį rezultatą po <span id="heroYearsLabel">10</span> metų.</span>
       </div>
     </div>
   </div>
@@ -277,7 +325,7 @@
         <tr data-category="Pinigai"><td class="tk">Cash</td><td class="cat">Pinigai</td><td class="num">-</td><td class="num">-</td><td class="val">$7,162.68</td></tr>
         <tr data-category="Finansai"><td class="tk">SOFI</td><td class="cat">Finansai</td><td class="num">300</td><td class="num">$21.31<span class="cost">$6,392 inv.</span></td><td class="val neg">$4,686.00<span class="pnl">-1,706 (-27%)</span></td></tr>
         <tr data-category="Finansai"><td class="tk">HOOD</td><td class="cat">Finansai</td><td class="num">60</td><td class="num">$56.27<span class="cost">$3,376 inv.</span></td><td class="val">$4,418.40<span class="pnl">+1,042 (+31%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Bitcoin<span class="sub">BTC</span></td><td class="cat">Kripto</td><td class="num">0.05527</td><td class="num">$33,387.51<span class="cost">$1,845 inv.</span></td><td class="val">$4,124.86<span class="pnl">+2,280 (+124%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Bitcoin<span class="sub">BTC</span></td><td class="cat">Kripto</td><td class="num">0.05527</td><td class="num">$33,387.51<span class="cost">$1,845 inv.</span></td><td class="val">$4,127.12<span class="pnl">+2,282 (+124%)</span></td></tr>
         <tr data-category="Sveikata"><td class="tk">UNH</td><td class="cat">Sveikata</td><td class="num">10</td><td class="num">$293.11<span class="cost">$2,931 inv.</span></td><td class="val">$3,884.70<span class="pnl">+954 (+33%)</span></td></tr>
         <tr data-category="Nasdaq 100 ETF"><td class="tk">ANAU</td><td class="cat">Nasdaq 100 ETF</td><td class="num">150</td><td class="num">$16.22<span class="cost">$2,433 inv.</span></td><td class="val">$3,763.50<span class="pnl">+1,330 (+55%)</span></td></tr>
         <tr data-category="Azijos rinka"><td class="tk">GRAB</td><td class="cat">Azijos rinka</td><td class="num">900</td><td class="num">$4.66<span class="cost">$4,195 inv.</span></td><td class="val neg">$3,159.00<span class="pnl">-1,036 (-25%)</span></td></tr>
@@ -290,7 +338,7 @@
         <tr data-category="Mažos akcijos"><td class="tk">LUMN</td><td class="cat">Mažos akcijos</td><td class="num">150</td><td class="num">$8.49<span class="cost">$1,274 inv.</span></td><td class="val">$1,411.50<span class="pnl">+138 (+11%)</span></td></tr>
         <tr data-category="Kinų akcijos"><td class="tk">JD</td><td class="cat">Kinų akcijos</td><td class="num">35</td><td class="num">$36.29<span class="cost">$1,270 inv.</span></td><td class="val neg">$1,068.20<span class="pnl">-202 (-16%)</span></td></tr>
         <tr data-category="Kripto akcijos"><td class="tk">SBET</td><td class="cat">Kripto akcijos</td><td class="num">100</td><td class="num">$18.29<span class="cost">$1,829 inv.</span></td><td class="val neg">$623.00<span class="pnl">-1,206 (-66%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Solana<span class="sub">SOL</span></td><td class="cat">Kripto</td><td class="num">7</td><td class="num">$147.36<span class="cost">$1,032 inv.</span></td><td class="val neg">$575.12<span class="pnl">-456 (-44%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Solana<span class="sub">SOL</span></td><td class="cat">Kripto</td><td class="num">7</td><td class="num">$147.36<span class="cost">$1,032 inv.</span></td><td class="val neg">$575.33<span class="pnl">-456 (-44%)</span></td></tr>
       </tbody>
     </table>
     <table>
@@ -298,7 +346,7 @@
         <tr><th>Tikeris</th><th>Kategorija</th><th class="num">Kiekis</th><th class="num">Avg / Inv.</th><th class="num">Vertė / +/-</th></tr>
       </thead>
       <tbody>
-        <tr data-category="Kripto"><td class="tk">Bittensor<span class="sub">TAO</span></td><td class="cat">Kripto</td><td class="num">2</td><td class="num">$286.10<span class="cost">$572 inv.</span></td><td class="val neg">$521.20<span class="pnl">-51 (-9%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Bittensor<span class="sub">TAO</span></td><td class="cat">Kripto</td><td class="num">2</td><td class="num">$286.10<span class="cost">$572 inv.</span></td><td class="val neg">$521.10<span class="pnl">-51 (-9%)</span></td></tr>
         <tr data-category="Kripto"><td class="tk">Chainlink<span class="sub">LINK</span></td><td class="cat">Kripto</td><td class="num">56.51</td><td class="num">$10.89<span class="cost">$616 inv.</span></td><td class="val neg">$519.29<span class="pnl">-96 (-16%)</span></td></tr>
         <tr data-category="Dividendai"><td class="tk">Divai 2024</td><td class="cat">Dividendai</td><td class="num">-</td><td class="num">-</td><td class="val">$502.98</td></tr>
         <tr data-category="Mažos akcijos"><td class="tk">GME</td><td class="cat">Mažos akcijos</td><td class="num">20</td><td class="num">$17.95<span class="cost">$359 inv.</span></td><td class="val">$439.20<span class="pnl">+80 (+22%)</span></td></tr>
@@ -306,18 +354,18 @@
         <tr data-category="Dividendai"><td class="tk">Divai 2025</td><td class="cat">Dividendai</td><td class="num">-</td><td class="num">-</td><td class="val">$368.73</td></tr>
         <tr data-category="Mažos akcijos"><td class="tk">TSL3</td><td class="cat">Mažos akcijos</td><td class="num">25</td><td class="num">$14.06<span class="cost">$352 inv.</span></td><td class="val">$365.50<span class="pnl">+14 (+4%)</span></td></tr>
         <tr data-category="Mažos akcijos"><td class="tk">ALGS</td><td class="cat">Mažos akcijos</td><td class="num">38</td><td class="num">$25.74<span class="cost">$978 inv.</span></td><td class="val neg">$218.88<span class="pnl">-759 (-78%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Tron<span class="sub">TRX</span></td><td class="cat">Kripto</td><td class="num">483.45</td><td class="num">$0.31<span class="cost">$149 inv.</span></td><td class="val">$173.58<span class="pnl">+25 (+17%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Tron<span class="sub">TRX</span></td><td class="cat">Kripto</td><td class="num">483.45</td><td class="num">$0.31<span class="cost">$149 inv.</span></td><td class="val">$173.57<span class="pnl">+25 (+17%)</span></td></tr>
         <tr data-category="Dividendai"><td class="tk">Divai 2023</td><td class="cat">Dividendai</td><td class="num">-</td><td class="num">-</td><td class="val">$132.90</td></tr>
-        <tr data-category="Kripto"><td class="tk">Dogecoin<span class="sub">DOGE</span></td><td class="cat">Kripto</td><td class="num">1,288.25</td><td class="num">$0.24<span class="cost">$308 inv.</span></td><td class="val neg">$128.05<span class="pnl">-180 (-58%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Dogecoin<span class="sub">DOGE</span></td><td class="cat">Kripto</td><td class="num">1,288.25</td><td class="num">$0.24<span class="cost">$308 inv.</span></td><td class="val neg">$128.03<span class="pnl">-180 (-58%)</span></td></tr>
         <tr data-category="Kripto"><td class="tk">Avalanche<span class="sub">AVAX</span></td><td class="cat">Kripto</td><td class="num">9.28</td><td class="num">$30.31<span class="cost">$281 inv.</span></td><td class="val neg">$82.61<span class="pnl">-199 (-71%)</span></td></tr>
         <tr data-category="Mažos akcijos"><td class="tk">RVPH</td><td class="cat">Mažos akcijos</td><td class="num">200</td><td class="num">$2.85<span class="cost">$570 inv.</span></td><td class="val neg">$82.60<span class="pnl">-487 (-85%)</span></td></tr>
         <tr data-category="Mažos akcijos"><td class="tk">NXL</td><td class="cat">Mažos akcijos</td><td class="num">184</td><td class="num">$2.49<span class="cost">$458 inv.</span></td><td class="val neg">$69.55<span class="pnl">-388 (-85%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Celestia<span class="sub">TIA</span></td><td class="cat">Kripto</td><td class="num">154.38</td><td class="num">$4.07<span class="cost">$629 inv.</span></td><td class="val neg">$61.80<span class="pnl">-567 (-90%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Polygon<span class="sub">MATIC</span></td><td class="cat">Kripto</td><td class="num">587.10</td><td class="num">$0.31<span class="cost">$181 inv.</span></td><td class="val neg">$51.68<span class="pnl">-130 (-71%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Celestia<span class="sub">TIA</span></td><td class="cat">Kripto</td><td class="num">154.38</td><td class="num">$4.07<span class="cost">$629 inv.</span></td><td class="val neg">$61.82<span class="pnl">-567 (-90%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Polygon<span class="sub">MATIC</span></td><td class="cat">Kripto</td><td class="num">587.10</td><td class="num">$0.31<span class="cost">$181 inv.</span></td><td class="val neg">$51.70<span class="pnl">-130 (-71%)</span></td></tr>
         <tr data-category="Mažos akcijos"><td class="tk">BIVI</td><td class="cat">Mažos akcijos</td><td class="num">28.10</td><td class="num">$32.74<span class="cost">$920 inv.</span></td><td class="val neg">$42.71<span class="pnl">-877 (-95%)</span></td></tr>
         <tr data-category="Kripto"><td class="tk">Cosmos<span class="sub">ATOM</span></td><td class="cat">Kripto</td><td class="num">20.88</td><td class="num">$9.96<span class="cost">$208 inv.</span></td><td class="val neg">$42.18<span class="pnl">-166 (-80%)</span></td></tr>
         <tr data-category="Mažos akcijos"><td class="tk">CLDI</td><td class="cat">Mažos akcijos</td><td class="num">100</td><td class="num">$1.12<span class="cost">$112 inv.</span></td><td class="val neg">$17.58<span class="pnl">-94 (-84%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Loopring<span class="sub">LRC</span></td><td class="cat">Kripto</td><td class="num">154.36</td><td class="num">$0.35<span class="cost">$54 inv.</span></td><td class="val neg">$2.44<span class="pnl">-52 (-95%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Loopring<span class="sub">LRC</span></td><td class="cat">Kripto</td><td class="num">154.36</td><td class="num">$0.35<span class="cost">$54 inv.</span></td><td class="val neg">$2.44<span class="pnl">-52 (-96%)</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -336,7 +384,7 @@
   const centerBig = document.getElementById('donutCenterBig');
   const centerSml = document.getElementById('donutCenterSml');
   const allRows = document.querySelectorAll('tbody tr');
-  const TOTAL = 100826.82;
+  const TOTAL = 100829.21;
   const DEFAULT_COUNTER = '37 pozicijos &bull; 11 kategorijų';
   const DEFAULT_BIG = '$101K';
   let activeCategory = null;
@@ -391,6 +439,103 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && activeCategory) applyFilter(null);
   });
+})();
+
+/* Interactive projection chart */
+(function() {
+  const CV = 100829.21;
+  const SV = 82666;
+  const PMT = 1332.17;
+  const YR = 0.38492990670725696;
+  const SR = 0.257;
+  const W = 820, H = 380, PL = 70, PR = 30, PT = 20, PB = 40;
+  const innerW = W - PL - PR;
+  const innerH = H - PT - PB;
+  const slider = document.getElementById('yearSlider');
+  if (!slider) return;
+
+  function fvDCA(pv, pmt, ar, months) {
+    if (months <= 0) return pv;
+    const mr = Math.pow(1 + ar, 1/12) - 1;
+    return pv * Math.pow(1 + mr, months) + pmt * (Math.pow(1 + mr, months) - 1) / mr * (1 + mr);
+  }
+
+  function fmtBig(v) {
+    if (v >= 1e6) return '$' + (v/1e6).toFixed(2).replace(/\.?0+$/, '') + 'M';
+    if (v >= 1e3) return '$' + Math.round(v/1e3).toLocaleString('en-US') + 'K';
+    return '$' + Math.round(v).toLocaleString('en-US');
+  }
+
+  function render(years) {
+    const months = years * 12;
+    const steps = Math.min(160, Math.max(months, 40));
+    const yourPts = [], spxPts = [];
+    for (let i = 0; i <= steps; i++) {
+      const m = (months / steps) * i;
+      yourPts.push({x: m/12, y: fvDCA(CV, PMT, YR, m)});
+      spxPts.push({x: m/12, y: fvDCA(SV, PMT, SR, m)});
+    }
+    const yF = yourPts[yourPts.length-1].y;
+    const sF = spxPts[spxPts.length-1].y;
+    const yMax = yF * 1.08;
+
+    const xS = x => PL + (x / years) * innerW;
+    const yS = y => PT + innerH - (y / yMax) * innerH;
+
+    const pathStr = pts => pts.map((p,i) => (i===0?'M':'L') + ' ' + xS(p.x).toFixed(1) + ' ' + yS(p.y).toFixed(1)).join(' ');
+    const areaStr = pts => pathStr(pts) + ' L ' + xS(years).toFixed(1) + ' ' + yS(0).toFixed(1) + ' L ' + xS(0).toFixed(1) + ' ' + yS(0).toFixed(1) + ' Z';
+
+    document.getElementById('yourLine').setAttribute('d', pathStr(yourPts));
+    document.getElementById('spxLine').setAttribute('d', pathStr(spxPts));
+    document.getElementById('yourArea').setAttribute('d', areaStr(yourPts));
+    document.getElementById('spxArea').setAttribute('d', areaStr(spxPts));
+    document.getElementById('yourDot').setAttribute('cx', xS(years));
+    document.getElementById('yourDot').setAttribute('cy', yS(yF));
+    document.getElementById('spxDot').setAttribute('cx', xS(years));
+    document.getElementById('spxDot').setAttribute('cy', yS(sF));
+
+    let gridH = '', yLab = '';
+    const N = 5;
+    for (let i = 0; i <= N; i++) {
+      const v = (yMax / N) * i;
+      const y = yS(v);
+      gridH += '<line x1="' + PL + '" y1="' + y + '" x2="' + (W-PR) + '" y2="' + y + '" stroke="#1a2d4a" stroke-width="0.5"/>';
+      yLab += '<text x="' + (PL-10) + '" y="' + (y+4) + '" fill="#6b8197" font-size="11" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, sans-serif">' + fmtBig(v) + '</text>';
+    }
+    document.getElementById('gridGroup').innerHTML = gridH;
+    document.getElementById('yLabels').innerHTML = yLab;
+
+    let xLab = '';
+    const xN = Math.min(years, 6);
+    for (let i = 0; i <= xN; i++) {
+      const yr = (years / xN) * i;
+      const x = xS(yr);
+      xLab += '<text x="' + x + '" y="' + (H-PB+22) + '" fill="#6b8197" font-size="11" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif">' + yr.toFixed(0) + 'm</text>';
+    }
+    document.getElementById('xLabels').innerHTML = xLab;
+
+    const sp = ((years - 1) / 29 * 100).toFixed(1);
+    slider.style.background = 'linear-gradient(to right, #2dd4bf 0%, #2dd4bf ' + sp + '%, #1a2d4a ' + sp + '%, #1a2d4a 100%)';
+
+    document.getElementById('yearVal').textContent = years;
+    document.getElementById('heroMult').textContent = (yF/sF).toFixed(1) + 'x';
+    document.getElementById('heroYears').textContent = years;
+    document.getElementById('heroYearsLabel').textContent = years;
+    document.getElementById('heroDiff').textContent = '+' + fmtBig(yF - sF);
+    document.getElementById('heroYourVal').textContent = fmtBig(yF);
+    document.getElementById('heroSpxVal').textContent = fmtBig(sF);
+    document.getElementById('heroPct').textContent = ((yF/sF - 1) * 100).toFixed(0) + '%';
+  }
+
+  slider.addEventListener('input', e => render(parseInt(e.target.value)));
+  document.querySelectorAll('.slider-marks span').forEach(s => {
+    s.addEventListener('click', () => {
+      const y = parseInt(s.dataset.y);
+      slider.value = y;
+      render(y);
+    });
+  });
+  render(10);
 })();
 </script>
 </body>
