@@ -241,6 +241,31 @@ def render(data):
     your_bar_pct = 100.0
     spx_bar_pct = (spx_profit / your_profit * 100) if your_profit > 0 else 0
 
+    # 10-year projection: continue DCA $1,332/mėn at current XIRRs
+    def fv_dca(pv, pmt, annual_rate, months):
+        mr = (1 + annual_rate) ** (1/12) - 1
+        fv_lump = pv * (1 + mr) ** months
+        fv_ann = pmt * (((1 + mr) ** months - 1) / mr) * (1 + mr)
+        return fv_lump + fv_ann
+
+    proj_months = 120
+    proj_pmt = meta['monthlyDCA']
+    your_proj = fv_dca(total, proj_pmt, xirr_r/100, proj_months)
+    spx_proj = fv_dca(spx_value, proj_pmt, spx_xirr/100, proj_months)
+    proj_total_invested_future = invested + proj_pmt * proj_months
+    your_proj_profit = your_proj - proj_total_invested_future
+    spx_proj_profit = spx_proj - proj_total_invested_future
+    proj_diff_dollar = your_proj - spx_proj
+    proj_diff_pct = (your_proj / spx_proj - 1) * 100 if spx_proj > 0 else 0
+    spx_proj_bar = (spx_proj / your_proj * 100) if your_proj > 0 else 0
+
+    def fmt_big(v):
+        if v >= 1_000_000:
+            return f"${v/1_000_000:.2f}M"
+        if v >= 1_000:
+            return f"${v/1_000:.0f}K"
+        return f"${v:,.0f}"
+
     template = f"""<!DOCTYPE html>
 <html lang="lt">
 <head>
@@ -291,6 +316,8 @@ def render(data):
   .benchmark-rows {{ position: relative; }}
   .benchmark-row.vwce .bk-value {{ color: #94a3b8; }}
   .benchmark-row.vwce .bk-label {{ color: #94a3b8; }}
+  .benchmark.projection {{ border-color: rgba(45,212,191,0.25); background: linear-gradient(135deg, var(--bg-card), #0d1f3a); }}
+  .proj-badge {{ display: inline-block; padding: 2px 8px; margin-left: 10px; background: rgba(45,212,191,0.15); color: var(--accent); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; border-radius: 3px; vertical-align: middle; }}
   .alloc-section {{ margin-bottom: 40px; padding: 32px; background: var(--bg-card); border-radius: 8px; border: 1px solid var(--line); }}
   .alloc-title {{ color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 6px; }}
   .alloc-hint {{ color: var(--muted); font-size: 11.5px; margin-bottom: 24px; opacity: 0.7; }}
@@ -404,6 +431,32 @@ def render(data):
     </div>
     <div class="benchmark-summary">
       Prieš S&amp;P 500: <strong>+${diff_dollar:,.0f}</strong> &nbsp;|&nbsp; <strong>+{(diff_dollar/spx_profit*100):.0f}%</strong> daugiau pelno nei S&amp;P 500 grąža per tą patį laikotarpį
+    </div>
+  </div>
+
+  <div class="benchmark projection">
+    <div class="benchmark-title">10 metų projekcija <span class="proj-badge">Hipotetinė</span></div>
+    <div class="benchmark-hint">Jei tęsi DCA ~${meta['monthlyDCA']:,.0f}/mėn ir grąža lieka tokia pat (~{xirr_r:.0f}% XIRR), tavo portfelio vertė po 10 metų vs jei tą patį būtum daręs S&amp;P 500 indekse (~{spx_xirr:.0f}% XIRR). Realiai grąža regresuos į vidurkį - tai matematinė vizualizacija, ne prognozė.</div>
+    <div class="benchmark-rows">
+      <div class="benchmark-row you">
+        <div class="bk-label">Tavo (po 10 m.)</div>
+        <div class="bk-bar-wrap"><div class="bk-bar" style="width: 100%"></div></div>
+        <div class="bk-right">
+          <div class="bk-value">{fmt_big(your_proj)}</div>
+          <div class="bk-meta">+{xirr_r:.1f}% XIRR tęsiamas</div>
+        </div>
+      </div>
+      <div class="benchmark-row vwce">
+        <div class="bk-label">S&amp;P 500 (po 10 m.)</div>
+        <div class="bk-bar-wrap"><div class="bk-bar" style="width: {spx_proj_bar:.1f}%"></div></div>
+        <div class="bk-right">
+          <div class="bk-value">{fmt_big(spx_proj)}</div>
+          <div class="bk-meta">+{spx_xirr:.1f}% XIRR tęsiamas</div>
+        </div>
+      </div>
+    </div>
+    <div class="benchmark-summary">
+      Po 10 metų skirtumas: <strong>+{fmt_big(proj_diff_dollar)}</strong> &nbsp;|&nbsp; <strong>+{proj_diff_pct:.0f}%</strong> daugiau nei S&amp;P 500 scenarijuje
     </div>
   </div>
 
