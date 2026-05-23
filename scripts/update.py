@@ -482,7 +482,7 @@ def render(data):
       <div class="hero-text">
         <span class="hero-dollar">+{fmt_big(proj_diff_dollar)}</span>
         Tiek daugiau pinigų po 10 metų lyginant su pasyvia S&amp;P 500 strategija (jei dabartinis XIRR išliks).
-        <span class="hero-sub">Skirtumas auga eksponentiškai dėl compound efekto - kiekvienas % alpha virsta milijonais ilgu laikotarpiu.</span>
+        <span class="hero-sub">Skirtumas auga eksponentiškai dėl compound efekto - kiekvienas % alpha virsta dideliu skirtumu ilgu laikotarpiu.</span>
       </div>
     </div>
   </div>
