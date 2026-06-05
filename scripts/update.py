@@ -409,18 +409,49 @@ def render(data):
   .meta {{ margin-top: 24px; display: flex; justify-content: space-between; color: var(--muted); font-size: 11.5px; letter-spacing: 0.5px; }}
   .live-badge {{ display: inline-block; padding: 2px 8px; border-radius: 3px; background: rgba(45,212,191,0.15); color: var(--accent); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; margin-left: 8px; }}
   @media (max-width: 880px) {{
-    .wrap {{ padding: 32px 20px; }}
-    h1 {{ font-size: 36px; }}
-    .benchmark {{ padding: 20px; }}
-    .benchmark-row {{ grid-template-columns: 1fr; gap: 8px; }}
+    .wrap {{ padding: 24px 14px; }}
+    h1 {{ font-size: 32px; gap: 12px; }}
+    .ig-link {{ width: 36px; height: 36px; border-radius: 10px; }}
+    .ig-link svg {{ width: 20px; height: 20px; }}
+    .subtitle {{ font-size: 12.5px; margin-bottom: 22px; }}
+    .live-badge {{ display: block; margin: 6px 0 0; width: fit-content; }}
+    .benchmark {{ padding: 18px 16px; margin-bottom: 22px; }}
+    .benchmark-row {{ grid-template-columns: 1fr !important; gap: 6px !important; }}
     .benchmark-row .bk-right {{ text-align: left; }}
-    .perf {{ grid-template-columns: repeat(2, 1fr); gap: 24px 0; padding: 20px 0; }}
-    .perf-item {{ padding: 0 16px; border-right: none; }}
+    .benchmark-row .bk-value {{ font-size: 22px !important; letter-spacing: -0.3px; }}
+    .benchmark-row .bk-bar-wrap {{ height: 32px; }}
+    .perf {{ grid-template-columns: repeat(2, 1fr); gap: 18px 0; padding: 18px 0; }}
+    .perf-item {{ padding: 0 10px; border-right: none; }}
     .perf-item:nth-child(odd) {{ border-right: 1px solid var(--line); }}
-    .perf-value {{ font-size: 24px; }}
-    .alloc-grid {{ grid-template-columns: 1fr; gap: 32px; justify-items: center; }}
-    .legend {{ grid-template-columns: 1fr; gap: 4px; }}
-    .grid {{ grid-template-columns: 1fr; }}
+    .perf-value {{ font-size: 22px; }}
+    .perf-sub {{ font-size: 11px; }}
+    .hero-callout {{ grid-template-columns: 1fr; gap: 14px; padding: 18px 16px; text-align: center; }}
+    .hero-multiplier .x-big {{ font-size: 48px !important; }}
+    .benchmark.projection .hero-multiplier .x-big {{ font-size: 56px !important; }}
+    .hero-text {{ font-size: 12.5px; }}
+    .hero-text .hero-dollar {{ font-size: 22px; }}
+    .alloc-section {{ padding: 20px 14px; }}
+    .alloc-grid {{ grid-template-columns: 1fr; gap: 24px; justify-items: center; }}
+    .donut-wrap {{ width: 200px; height: 200px; }}
+    .legend {{ grid-template-columns: 1fr; gap: 4px; width: 100%; }}
+    .grid {{ grid-template-columns: 1fr; gap: 24px 0; }}
+    .section-header {{ font-size: 18px; }}
+    .section-header .meta-inline {{ font-size: 11px; gap: 8px; }}
+    table {{ font-size: 12px; }}
+    thead th {{ font-size: 10px; padding: 8px 0 10px; }}
+    tbody td {{ padding: 7px 0; }}
+    tbody td.tk {{ font-size: 12.5px; }}
+    tbody td.tk .sub {{ font-size: 9.5px; }}
+    tbody td.num .cost, tbody td.val .pnl {{ font-size: 9.5px; }}
+    /* Hide Kategorija and Kiekis on mobile - keep Ticker, Avg/Inv, Dab. kaina, Vertė */
+    thead th:nth-child(2), tbody td:nth-child(2),
+    thead th:nth-child(3), tbody td:nth-child(3) {{ display: none; }}
+    .chart-wrap {{ padding: 12px 4px 6px; margin: 20px 0 16px; }}
+    .chart-legend {{ gap: 16px; font-size: 11px; flex-wrap: wrap; }}
+    .slider-section {{ grid-template-columns: 1fr; gap: 14px; padding: 16px; }}
+    .slider-display .slider-num {{ font-size: 42px; }}
+    .slider-marks {{ font-size: 9px; }}
+    input[type=range].slider::-webkit-slider-thumb {{ width: 28px; height: 28px; }}
   }}
 </style>
 </head>
