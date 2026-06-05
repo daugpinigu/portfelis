@@ -116,6 +116,7 @@ def render_row(p, totalVal):
             f'<td class="cat">{cat}</td>'
             f'<td class="num">-</td>'
             f'<td class="num">-</td>'
+            f'<td class="num">-</td>'
             f'<td class="val">{fmt_money(val)}</td>'
             f'</tr>'
         )
@@ -129,6 +130,7 @@ def render_row(p, totalVal):
     valcls = "val" if pnl >= 0 else "val neg"
     pnl_sign = "+" if pnl >= 0 else "-"
     pct_sign = "+" if pnl_pct >= 0 else "-"
+    price_class = "num live" if price >= avg else "num live neg"
     # Ticker cell may have subTicker
     if "subTicker" in p:
         tk_html = f'{p.get("displayName", p["ticker"])}<span class="sub">{p["subTicker"]}</span>'
@@ -140,6 +142,7 @@ def render_row(p, totalVal):
         f'<td class="cat">{cat}</td>'
         f'<td class="num">{fmt_shares(shares)}</td>'
         f'<td class="num">{fmt_avg(avg)}<span class="cost">{fmt_money_round(cost)} inv.</span></td>'
+        f'<td class="{price_class}">{fmt_avg(price)}</td>'
         f'<td class="{valcls}">{fmt_money(value)}<span class="pnl">{pnl_sign}{fmt_money_round(abs(pnl))[1:] if pnl<0 else fmt_money_round(pnl)[1:]} ({pct_sign}{abs(pnl_pct):.0f}%)</span></td>'
         f'</tr>'
     )
@@ -394,6 +397,8 @@ def render(data):
   tbody td.cat {{ color: var(--muted); font-size: 12px; }}
   tbody td.num {{ text-align: right; font-variant-numeric: tabular-nums; }}
   tbody td.num .cost {{ display: block; color: var(--muted); font-size: 10.5px; font-weight: 500; margin-top: 2px; letter-spacing: 0.3px; }}
+  tbody td.num.live {{ color: var(--green); font-weight: 600; }}
+  tbody td.num.live.neg {{ color: var(--red); }}
   tbody td.val {{ text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--green); }}
   tbody td.val.neg {{ color: var(--red); }}
   tbody td.val .pnl {{ display: block; font-size: 10.5px; font-weight: 500; margin-top: 2px; letter-spacing: 0.3px; opacity: 0.9; }}
@@ -570,7 +575,7 @@ def render(data):
   <div class="grid">
     <table>
       <thead>
-        <tr><th>Tikeris</th><th>Kategorija</th><th class="num">Kiekis</th><th class="num">Avg / Inv.</th><th class="num">Vertė / +/-</th></tr>
+        <tr><th>Tikeris</th><th>Kategorija</th><th class="num">Kiekis</th><th class="num">Avg / Inv.</th><th class="num">Dab. kaina</th><th class="num">Vertė / +/-</th></tr>
       </thead>
       <tbody>
         {col1_html}
@@ -578,7 +583,7 @@ def render(data):
     </table>
     <table>
       <thead>
-        <tr><th>Tikeris</th><th>Kategorija</th><th class="num">Kiekis</th><th class="num">Avg / Inv.</th><th class="num">Vertė / +/-</th></tr>
+        <tr><th>Tikeris</th><th>Kategorija</th><th class="num">Kiekis</th><th class="num">Avg / Inv.</th><th class="num">Dab. kaina</th><th class="num">Vertė / +/-</th></tr>
       </thead>
       <tbody>
         {col2_html}
