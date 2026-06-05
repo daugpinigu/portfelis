@@ -1,0 +1,54 @@
+name: Cleanup Share Snapshots
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'  # every 3 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cleanup-shares
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Delete expired share snapshots
+        run: |
+          NOW=$(date +%s)
+          MAX_AGE=86400  # 24 hours in seconds
+          deleted=0
+          for f in share-*.html; do
+            [ -e "$f" ] || continue
+            ts=$(echo "$f" | sed -E 's/^share-([0-9]+).*\.html$/\1/')
+            if ! [[ "$ts" =~ ^[0-9]+$ ]]; then
+              echo "Skip (cannot parse timestamp): $f"
+              continue
+            fi
+            age=$((NOW - ts))
+            if [ $age -gt $MAX_AGE ]; then
+              echo "Deleting $f (age $((age / 3600))h)"
+              rm "$f"
+              deleted=$((deleted + 1))
+            else
+              echo "Keeping $f (age $((age / 3600))h, expires in $(((MAX_AGE - age) / 3600))h)"
+            fi
+          done
+          echo "Total deleted: $deleted"
+
+      - name: Commit and push deletions
+        run: |
+          git config user.name "daugpinigu-bot"
+          git config user.email "bot@daugpinigu.local"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No expired shares to remove."
+          else
+            git commit -m "Cleanup expired share snapshots $(date -u +%Y-%m-%d)"
+            git push
+          fi
