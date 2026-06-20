@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-06-19",
+    "lastUpdated": "2026-06-20",
     "totalInvested": 54619.0,
     "monthlyDCA": 1332.17,
     "startDate": "2023-01-01",
@@ -74,7 +74,7 @@
       "shares": 0.05527,
       "avgPrice": 33387.51,
       "cost": 1845.35,
-      "currentPrice": 63205,
+      "currentPrice": 64230,
       "coingecko": "bitcoin"
     },
     {
@@ -184,7 +184,7 @@
       "shares": 7,
       "avgPrice": 147.36,
       "cost": 1031.52,
-      "currentPrice": 69.26,
+      "currentPrice": 73.63,
       "coingecko": "solana"
     },
     {
@@ -195,7 +195,7 @@
       "shares": 2,
       "avgPrice": 286.1,
       "cost": 572.2,
-      "currentPrice": 226.01,
+      "currentPrice": 232.76,
       "coingecko": "bittensor"
     },
     {
@@ -206,7 +206,7 @@
       "shares": 56.506,
       "avgPrice": 10.89,
       "cost": 615.6,
-      "currentPrice": 7.9,
+      "currentPrice": 7.99,
       "coingecko": "chainlink"
     },
     {
@@ -263,7 +263,7 @@
       "shares": 483.449,
       "avgPrice": 0.31,
       "cost": 148.52,
-      "currentPrice": 0.32309,
+      "currentPrice": 0.326401,
       "coingecko": "tron"
     },
     {
@@ -283,7 +283,7 @@
       "shares": 1288.25,
       "avgPrice": 0.24,
       "cost": 307.87,
-      "currentPrice": 0.083021,
+      "currentPrice": 0.083798,
       "coingecko": "dogecoin"
     },
     {
@@ -299,7 +299,7 @@
       "shares": 9.282,
       "avgPrice": 30.31,
       "cost": 281.3,
-      "currentPrice": 5.95,
+      "currentPrice": 6.23,
       "coingecko": "avalanche-2"
     },
     {
@@ -319,7 +319,7 @@
       "shares": 154.38,
       "avgPrice": 4.07,
       "cost": 629.0,
-      "currentPrice": 0.38096,
+      "currentPrice": 0.373228,
       "coingecko": "celestia"
     },
     {
@@ -330,7 +330,7 @@
       "shares": 587.1,
       "avgPrice": 0.31,
       "cost": 181.3,
-      "currentPrice": 0.079753,
+      "currentPrice": 0.080283,
       "coingecko": "polygon-ecosystem-token"
     },
     {
@@ -370,7 +370,7 @@
       "shares": 154.36,
       "avgPrice": 0.35,
       "cost": 54.2,
-      "currentPrice": 0.01334829,
+      "currentPrice": 0.01339788,
       "coingecko": "loopring"
     }
   ],
