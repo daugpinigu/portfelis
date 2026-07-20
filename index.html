@@ -94,15 +94,15 @@
   .alloc-grid { display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: center; }
   .donut-wrap { position: relative; width: 240px; height: 240px; }
   .donut { width: 100%; height: 100%; border-radius: 50%; background: conic-gradient(
-      #2dd4bf 0.00% 49.96%,
-      #60a5fa 49.96% 61.63%,
-      #94a3b8 61.63% 73.08%,
-      #fb923c 73.08% 78.74%,
-      #ef4444 78.74% 84.10%,
-      #f59e0b 84.10% 88.18%,
-      #818cf8 88.18% 92.11%,
-      #a855f7 92.11% 95.60%,
-      #ec4899 95.60% 98.95%,
+      #2dd4bf 0.00% 49.54%,
+      #60a5fa 49.54% 61.09%,
+      #94a3b8 61.09% 72.54%,
+      #fb923c 72.54% 78.23%,
+      #ef4444 78.23% 83.78%,
+      #f59e0b 83.78% 88.19%,
+      #818cf8 88.19% 92.12%,
+      #a855f7 92.12% 95.55%,
+      #ec4899 95.55% 98.95%,
       #facc15 98.95% 100.00%
     ); position: relative; }
   .donut::after { content: ''; position: absolute; inset: 42px; background: var(--bg-card); border-radius: 50%; }
@@ -200,8 +200,8 @@
   <div class="perf">
     <div class="perf-item">
       <div class="perf-label">Bendras pelnas</div>
-      <div class="perf-value pos">+75.4%</div>
-      <div class="perf-sub">+$41,178</div>
+      <div class="perf-value pos">+75.3%</div>
+      <div class="perf-sub">+$41,150</div>
     </div>
     <div class="perf-item">
       <div class="perf-label">Metinė grąža (XIRR)</div>
@@ -215,7 +215,7 @@
     </div>
     <div class="perf-item">
       <div class="perf-label">Vertė šiandien</div>
-      <div class="perf-value">$95,797</div>
+      <div class="perf-value">$95,769</div>
       <div class="perf-sub">2023.01 - 2026.07</div>
     </div>
   </div>
@@ -228,13 +228,13 @@
         <div class="bk-label">Tavo pelnas</div>
         <div class="bk-bar-wrap"><div class="bk-bar" style="width: 100.0%"></div></div>
         <div class="bk-right">
-          <div class="bk-value">+$41,178</div>
-          <div class="bk-meta">+75.4% &bull; vertė $95,797</div>
+          <div class="bk-value">+$41,150</div>
+          <div class="bk-meta">+75.3% &bull; vertė $95,769</div>
         </div>
       </div>
       <div class="benchmark-row vwce">
         <div class="bk-label">S&amp;P 500 pelnas</div>
-        <div class="bk-bar-wrap"><div class="bk-bar" style="width: 68.1%"></div></div>
+        <div class="bk-bar-wrap"><div class="bk-bar" style="width: 68.2%"></div></div>
         <div class="bk-right">
           <div class="bk-value">+$28,047</div>
           <div class="bk-meta">+51.4% &bull; vertė $82,666</div>
@@ -247,7 +247,7 @@
         <div class="x-label">daugiau pelno</div>
       </div>
       <div class="hero-text">
-        <span class="hero-dollar">+$13,131</span>
+        <span class="hero-dollar">+$13,103</span>
         Tiek didesnis uždarbis nei pasyvi S&amp;P 500 strategija už tą pačią DCA sumą per tą patį laikotarpį.
         <span class="hero-sub">Aktyvus pick'inimas davė +47% extra grąžą virš S&amp;P 500.</span>
       </div>
@@ -326,16 +326,16 @@
         </div>
       </div>
       <div class="legend" id="legend">
-        <div class="legend-item" data-category="Tech akcijos" data-color="#2dd4bf"><span class="dot" style="background:#2dd4bf"></span><span class="name">Tech akcijos</span><span class="pct">50.0%</span></div>
-        <div class="legend-item" data-category="Finansai" data-color="#60a5fa"><span class="dot" style="background:#60a5fa"></span><span class="name">Finansai</span><span class="pct">11.7%</span></div>
+        <div class="legend-item" data-category="Tech akcijos" data-color="#2dd4bf"><span class="dot" style="background:#2dd4bf"></span><span class="name">Tech akcijos</span><span class="pct">49.5%</span></div>
+        <div class="legend-item" data-category="Finansai" data-color="#60a5fa"><span class="dot" style="background:#60a5fa"></span><span class="name">Finansai</span><span class="pct">11.5%</span></div>
         <div class="legend-item" data-category="Nasdaq 100 ETF" data-color="#818cf8"><span class="dot" style="background:#818cf8"></span><span class="name">Nasdaq 100 ETF</span><span class="pct">3.9%</span></div>
         <div class="legend-item" data-category="Pinigai" data-color="#94a3b8"><span class="dot" style="background:#94a3b8"></span><span class="name">Pinigai</span><span class="pct">11.4%</span></div>
         <div class="legend-item" data-category="Azijos rinka" data-color="#ec4899"><span class="dot" style="background:#ec4899"></span><span class="name">Azijos rinka</span><span class="pct">3.4%</span></div>
         <div class="legend-item" data-category="Kripto" data-color="#fb923c"><span class="dot" style="background:#fb923c"></span><span class="name">Kripto</span><span class="pct">5.7%</span></div>
-        <div class="legend-item" data-category="Mažos akcijos" data-color="#a855f7"><span class="dot" style="background:#a855f7"></span><span class="name">Mažos akcijos</span><span class="pct">3.5%</span></div>
-        <div class="legend-item" data-category="Kinų akcijos" data-color="#ef4444"><span class="dot" style="background:#ef4444"></span><span class="name">Kinų akcijos</span><span class="pct">5.4%</span></div>
+        <div class="legend-item" data-category="Mažos akcijos" data-color="#a855f7"><span class="dot" style="background:#a855f7"></span><span class="name">Mažos akcijos</span><span class="pct">3.4%</span></div>
+        <div class="legend-item" data-category="Kinų akcijos" data-color="#ef4444"><span class="dot" style="background:#ef4444"></span><span class="name">Kinų akcijos</span><span class="pct">5.5%</span></div>
         <div class="legend-item" data-category="Dividendai" data-color="#facc15"><span class="dot" style="background:#facc15"></span><span class="name">Dividendai</span><span class="pct">1.0%</span></div>
-        <div class="legend-item" data-category="Kripto akcijos" data-color="#f59e0b"><span class="dot" style="background:#f59e0b"></span><span class="name">Kripto akcijos</span><span class="pct">4.1%</span></div>
+        <div class="legend-item" data-category="Kripto akcijos" data-color="#f59e0b"><span class="dot" style="background:#f59e0b"></span><span class="name">Kripto akcijos</span><span class="pct">4.4%</span></div>
       </div>
     </div>
   </div>
@@ -354,26 +354,26 @@
         <tr><th>Tikeris</th><th>Kategorija</th><th class="num">Kiekis</th><th class="num">Avg / Inv.</th><th class="num">Dab. kaina</th><th class="num">Vertė / +/-</th></tr>
       </thead>
       <tbody>
-        <tr data-category="Tech akcijos"><td class="tk">TSLA</td><td class="cat">Tech akcijos</td><td class="num">52</td><td class="num">$270.75<span class="cost">$14,079 inv.</span></td><td class="num live">$380.84</td><td class="val">$19,803.68<span class="pnl">+5,725 (+41%)</span></td></tr>
-        <tr data-category="Tech akcijos"><td class="tk">AMZN</td><td class="cat">Tech akcijos</td><td class="num">45</td><td class="num">$203.58<span class="cost">$9,161 inv.</span></td><td class="num live">$247.23</td><td class="val">$11,125.35<span class="pnl">+1,964 (+21%)</span></td></tr>
+        <tr data-category="Tech akcijos"><td class="tk">TSLA</td><td class="cat">Tech akcijos</td><td class="num">52</td><td class="num">$270.75<span class="cost">$14,079 inv.</span></td><td class="num live">$369.57</td><td class="val">$19,217.64<span class="pnl">+5,139 (+36%)</span></td></tr>
+        <tr data-category="Tech akcijos"><td class="tk">AMZN</td><td class="cat">Tech akcijos</td><td class="num">45</td><td class="num">$203.58<span class="cost">$9,161 inv.</span></td><td class="num live">$249.99</td><td class="val">$11,249.55<span class="pnl">+2,089 (+23%)</span></td></tr>
         <tr data-category="Pinigai"><td class="tk">Cash</td><td class="cat">Pinigai</td><td class="num">-</td><td class="num">-</td><td class="num">-</td><td class="val">$10,964.68</td></tr>
-        <tr data-category="Tech akcijos"><td class="tk">META</td><td class="cat">Tech akcijos</td><td class="num">12</td><td class="num">$522.32<span class="cost">$6,268 inv.</span></td><td class="num live">$646.01</td><td class="val">$7,752.12<span class="pnl">+1,484 (+24%)</span></td></tr>
-        <tr data-category="Tech akcijos"><td class="tk">NVDA</td><td class="cat">Tech akcijos</td><td class="num">35</td><td class="num">$178.29<span class="cost">$6,240 inv.</span></td><td class="num live">$202.81</td><td class="val">$7,098.35<span class="pnl">+858 (+14%)</span></td></tr>
-        <tr data-category="Finansai"><td class="tk">HOOD</td><td class="cat">Finansai</td><td class="num">60</td><td class="num">$56.27<span class="cost">$3,376 inv.</span></td><td class="num live">$99.96</td><td class="val">$5,997.60<span class="pnl">+2,622 (+78%)</span></td></tr>
-        <tr data-category="Finansai"><td class="tk">SOFI</td><td class="cat">Finansai</td><td class="num">300</td><td class="num">$21.31<span class="cost">$6,392 inv.</span></td><td class="num live neg">$17.28</td><td class="val neg">$5,184.00<span class="pnl">-1,208 (-19%)</span></td></tr>
+        <tr data-category="Tech akcijos"><td class="tk">META</td><td class="cat">Tech akcijos</td><td class="num">12</td><td class="num">$522.32<span class="cost">$6,268 inv.</span></td><td class="num live">$645.85</td><td class="val">$7,750.20<span class="pnl">+1,482 (+24%)</span></td></tr>
+        <tr data-category="Tech akcijos"><td class="tk">NVDA</td><td class="cat">Tech akcijos</td><td class="num">35</td><td class="num">$178.29<span class="cost">$6,240 inv.</span></td><td class="num live">$203.28</td><td class="val">$7,114.80<span class="pnl">+875 (+14%)</span></td></tr>
+        <tr data-category="Finansai"><td class="tk">HOOD</td><td class="cat">Finansai</td><td class="num">60</td><td class="num">$56.27<span class="cost">$3,376 inv.</span></td><td class="num live">$99.28</td><td class="val">$5,956.80<span class="pnl">+2,581 (+76%)</span></td></tr>
+        <tr data-category="Finansai"><td class="tk">SOFI</td><td class="cat">Finansai</td><td class="num">300</td><td class="num">$21.31<span class="cost">$6,392 inv.</span></td><td class="num live neg">$17.01</td><td class="val neg">$5,103.00<span class="pnl">-1,288 (-20%)</span></td></tr>
         <tr data-category="Nasdaq 100 ETF"><td class="tk">ANAU</td><td class="cat">Nasdaq 100 ETF</td><td class="num">150</td><td class="num">$16.22<span class="cost">$2,433 inv.</span></td><td class="num live">$25.09</td><td class="val">$3,763.50<span class="pnl">+1,330 (+55%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Bitcoin<span class="sub">BTC</span></td><td class="cat">Kripto</td><td class="num">0.05527</td><td class="num">$33,387.51<span class="cost">$1,845 inv.</span></td><td class="num live">$64,664.00</td><td class="val">$3,573.98<span class="pnl">+1,729 (+94%)</span></td></tr>
-        <tr data-category="Azijos rinka"><td class="tk">GRAB</td><td class="cat">Azijos rinka</td><td class="num">900</td><td class="num">$4.66<span class="cost">$4,195 inv.</span></td><td class="num live neg">$3.57</td><td class="val neg">$3,213.00<span class="pnl">-982 (-23%)</span></td></tr>
-        <tr data-category="Kinų akcijos"><td class="tk">BIDU</td><td class="cat">Kinų akcijos</td><td class="num">20</td><td class="num">$87.29<span class="cost">$1,746 inv.</span></td><td class="num live">$107.24</td><td class="val">$2,144.80<span class="pnl">+399 (+23%)</span></td></tr>
-        <tr data-category="Tech akcijos"><td class="tk">GOOGL</td><td class="cat">Tech akcijos</td><td class="num">6</td><td class="num">$185.91<span class="cost">$1,115 inv.</span></td><td class="num live">$346.77</td><td class="val">$2,080.62<span class="pnl">+965 (+87%)</span></td></tr>
-        <tr data-category="Kripto akcijos"><td class="tk">BMNR</td><td class="cat">Kripto akcijos</td><td class="num">130</td><td class="num">$39.04<span class="cost">$5,075 inv.</span></td><td class="num live neg">$15.69</td><td class="val neg">$2,039.70<span class="pnl">-3,035 (-60%)</span></td></tr>
-        <tr data-category="Kinų akcijos"><td class="tk">BABA</td><td class="cat">Kinų akcijos</td><td class="num">17</td><td class="num">$77.96<span class="cost">$1,403 inv.</span></td><td class="num live">$114.97</td><td class="val">$1,954.49<span class="pnl">+551 (+39%)</span></td></tr>
-        <tr data-category="Kripto akcijos"><td class="tk">CLSK</td><td class="cat">Kripto akcijos</td><td class="num">100</td><td class="num">$8.60<span class="cost">$860 inv.</span></td><td class="num live">$13.03</td><td class="val">$1,303.00<span class="pnl">+443 (+52%)</span></td></tr>
-        <tr data-category="Kinų akcijos"><td class="tk">JD</td><td class="cat">Kinų akcijos</td><td class="num">35</td><td class="num">$36.29<span class="cost">$1,270 inv.</span></td><td class="num live neg">$29.62</td><td class="val neg">$1,036.70<span class="pnl">-233 (-18%)</span></td></tr>
-        <tr data-category="Mažos akcijos"><td class="tk">LUMN</td><td class="cat">Mažos akcijos</td><td class="num">150</td><td class="num">$8.49<span class="cost">$1,274 inv.</span></td><td class="num live neg">$6.28</td><td class="val neg">$942.00<span class="pnl">-332 (-26%)</span></td></tr>
-        <tr data-category="Mažos akcijos"><td class="tk">VLN</td><td class="cat">Mažos akcijos</td><td class="num">500</td><td class="num">$2.30<span class="cost">$1,149 inv.</span></td><td class="num live neg">$1.71</td><td class="val neg">$855.00<span class="pnl">-294 (-26%)</span></td></tr>
-        <tr data-category="Kripto akcijos"><td class="tk">SBET</td><td class="cat">Kripto akcijos</td><td class="num">100</td><td class="num">$18.29<span class="cost">$1,829 inv.</span></td><td class="num live neg">$5.67</td><td class="val neg">$566.50<span class="pnl">-1,262 (-69%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Solana<span class="sub">SOL</span></td><td class="cat">Kripto</td><td class="num">7</td><td class="num">$147.36<span class="cost">$1,032 inv.</span></td><td class="num live neg">$76.07</td><td class="val neg">$532.49<span class="pnl">-499 (-48%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Bitcoin<span class="sub">BTC</span></td><td class="cat">Kripto</td><td class="num">0.05527</td><td class="num">$33,387.51<span class="cost">$1,845 inv.</span></td><td class="num live">$65,062.00</td><td class="val">$3,595.98<span class="pnl">+1,751 (+95%)</span></td></tr>
+        <tr data-category="Azijos rinka"><td class="tk">GRAB</td><td class="cat">Azijos rinka</td><td class="num">900</td><td class="num">$4.66<span class="cost">$4,195 inv.</span></td><td class="num live neg">$3.62</td><td class="val neg">$3,258.00<span class="pnl">-937 (-22%)</span></td></tr>
+        <tr data-category="Kinų akcijos"><td class="tk">BIDU</td><td class="cat">Kinų akcijos</td><td class="num">20</td><td class="num">$87.29<span class="cost">$1,746 inv.</span></td><td class="num live">$109.81</td><td class="val">$2,196.20<span class="pnl">+450 (+26%)</span></td></tr>
+        <tr data-category="Kripto akcijos"><td class="tk">BMNR</td><td class="cat">Kripto akcijos</td><td class="num">130</td><td class="num">$39.04<span class="cost">$5,075 inv.</span></td><td class="num live neg">$16.63</td><td class="val neg">$2,161.90<span class="pnl">-2,913 (-57%)</span></td></tr>
+        <tr data-category="Tech akcijos"><td class="tk">GOOGL</td><td class="cat">Tech akcijos</td><td class="num">6</td><td class="num">$185.91<span class="cost">$1,115 inv.</span></td><td class="num live">$351.99</td><td class="val">$2,111.94<span class="pnl">+996 (+89%)</span></td></tr>
+        <tr data-category="Kinų akcijos"><td class="tk">BABA</td><td class="cat">Kinų akcijos</td><td class="num">17</td><td class="num">$77.96<span class="cost">$1,403 inv.</span></td><td class="num live">$120.34</td><td class="val">$2,045.78<span class="pnl">+643 (+46%)</span></td></tr>
+        <tr data-category="Kripto akcijos"><td class="tk">CLSK</td><td class="cat">Kripto akcijos</td><td class="num">100</td><td class="num">$8.60<span class="cost">$860 inv.</span></td><td class="num live">$14.42</td><td class="val">$1,442.00<span class="pnl">+582 (+68%)</span></td></tr>
+        <tr data-category="Kinų akcijos"><td class="tk">JD</td><td class="cat">Kinų akcijos</td><td class="num">35</td><td class="num">$36.29<span class="cost">$1,270 inv.</span></td><td class="num live neg">$30.60</td><td class="val neg">$1,071.00<span class="pnl">-199 (-16%)</span></td></tr>
+        <tr data-category="Mažos akcijos"><td class="tk">LUMN</td><td class="cat">Mažos akcijos</td><td class="num">150</td><td class="num">$8.49<span class="cost">$1,274 inv.</span></td><td class="num live neg">$6.38</td><td class="val neg">$957.00<span class="pnl">-316 (-25%)</span></td></tr>
+        <tr data-category="Mažos akcijos"><td class="tk">VLN</td><td class="cat">Mažos akcijos</td><td class="num">500</td><td class="num">$2.30<span class="cost">$1,149 inv.</span></td><td class="num live neg">$1.66</td><td class="val neg">$830.00<span class="pnl">-319 (-28%)</span></td></tr>
+        <tr data-category="Kripto akcijos"><td class="tk">SBET</td><td class="cat">Kripto akcijos</td><td class="num">100</td><td class="num">$18.29<span class="cost">$1,829 inv.</span></td><td class="num live neg">$6.14</td><td class="val neg">$614.00<span class="pnl">-1,215 (-66%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Solana<span class="sub">SOL</span></td><td class="cat">Kripto</td><td class="num">7</td><td class="num">$147.36<span class="cost">$1,032 inv.</span></td><td class="num live neg">$77.46</td><td class="val neg">$542.22<span class="pnl">-489 (-47%)</span></td></tr>
       </tbody>
     </table>
     <table>
@@ -382,32 +382,32 @@
       </thead>
       <tbody>
         <tr data-category="Dividendai"><td class="tk">Divai 2024</td><td class="cat">Dividendai</td><td class="num">-</td><td class="num">-</td><td class="num">-</td><td class="val">$502.98</td></tr>
-        <tr data-category="Kripto"><td class="tk">Chainlink<span class="sub">LINK</span></td><td class="cat">Kripto</td><td class="num">56.51</td><td class="num">$10.89<span class="cost">$616 inv.</span></td><td class="num live neg">$8.37</td><td class="val neg">$472.96<span class="pnl">-143 (-23%)</span></td></tr>
-        <tr data-category="Mažos akcijos"><td class="tk">GME</td><td class="cat">Mažos akcijos</td><td class="num">20</td><td class="num">$17.95<span class="cost">$359 inv.</span></td><td class="num live">$21.89</td><td class="val">$437.80<span class="pnl">+79 (+22%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Chainlink<span class="sub">LINK</span></td><td class="cat">Kripto</td><td class="num">56.51</td><td class="num">$10.89<span class="cost">$616 inv.</span></td><td class="num live neg">$8.53</td><td class="val neg">$482.00<span class="pnl">-134 (-22%)</span></td></tr>
+        <tr data-category="Mažos akcijos"><td class="tk">GME</td><td class="cat">Mažos akcijos</td><td class="num">20</td><td class="num">$17.95<span class="cost">$359 inv.</span></td><td class="num live">$21.76</td><td class="val">$435.20<span class="pnl">+76 (+21%)</span></td></tr>
         <tr data-category="Mažos akcijos"><td class="tk">3LMI</td><td class="cat">Mažos akcijos</td><td class="num">880</td><td class="num">$3.06<span class="cost">$2,693 inv.</span></td><td class="num live neg">$0.46</td><td class="val neg">$404.80<span class="pnl">-2,288 (-85%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Bittensor<span class="sub">TAO</span></td><td class="cat">Kripto</td><td class="num">2</td><td class="num">$286.10<span class="cost">$572 inv.</span></td><td class="num live neg">$198.10</td><td class="val neg">$396.20<span class="pnl">-176 (-31%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Bittensor<span class="sub">TAO</span></td><td class="cat">Kripto</td><td class="num">2</td><td class="num">$286.10<span class="cost">$572 inv.</span></td><td class="num live neg">$194.62</td><td class="val neg">$389.24<span class="pnl">-183 (-32%)</span></td></tr>
         <tr data-category="Dividendai"><td class="tk">Divai 2025</td><td class="cat">Dividendai</td><td class="num">-</td><td class="num">-</td><td class="num">-</td><td class="val">$368.73</td></tr>
-        <tr data-category="Mažos akcijos"><td class="tk">TSL3</td><td class="cat">Mažos akcijos</td><td class="num">25</td><td class="num">$14.06<span class="cost">$352 inv.</span></td><td class="num live neg">$8.82</td><td class="val neg">$220.50<span class="pnl">-131 (-37%)</span></td></tr>
-        <tr data-category="Mažos akcijos"><td class="tk">ALGS</td><td class="cat">Mažos akcijos</td><td class="num">38</td><td class="num">$25.74<span class="cost">$978 inv.</span></td><td class="num live neg">$5.74</td><td class="val neg">$218.12<span class="pnl">-760 (-78%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Tron<span class="sub">TRX</span></td><td class="cat">Kripto</td><td class="num">483.45</td><td class="num">$0.31<span class="cost">$149 inv.</span></td><td class="num live">$0.33</td><td class="val">$157.98<span class="pnl">+9 (+6%)</span></td></tr>
+        <tr data-category="Mažos akcijos"><td class="tk">TSL3</td><td class="cat">Mažos akcijos</td><td class="num">25</td><td class="num">$14.06<span class="cost">$352 inv.</span></td><td class="num live neg">$8.42</td><td class="val neg">$210.55<span class="pnl">-141 (-40%)</span></td></tr>
+        <tr data-category="Mažos akcijos"><td class="tk">ALGS</td><td class="cat">Mažos akcijos</td><td class="num">38</td><td class="num">$25.74<span class="cost">$978 inv.</span></td><td class="num live neg">$5.28</td><td class="val neg">$200.64<span class="pnl">-777 (-79%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Tron<span class="sub">TRX</span></td><td class="cat">Kripto</td><td class="num">483.45</td><td class="num">$0.31<span class="cost">$149 inv.</span></td><td class="num live">$0.33</td><td class="val">$157.77<span class="pnl">+9 (+6%)</span></td></tr>
         <tr data-category="Dividendai"><td class="tk">Divai 2023</td><td class="cat">Dividendai</td><td class="num">-</td><td class="num">-</td><td class="num">-</td><td class="val">$132.90</td></tr>
-        <tr data-category="Mažos akcijos"><td class="tk">RVPH</td><td class="cat">Mažos akcijos</td><td class="num">200</td><td class="num">$2.85<span class="cost">$570 inv.</span></td><td class="num live neg">$0.56</td><td class="val neg">$113.00<span class="pnl">-457 (-80%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Dogecoin<span class="sub">DOGE</span></td><td class="cat">Kripto</td><td class="num">1,288.25</td><td class="num">$0.24<span class="cost">$308 inv.</span></td><td class="num live neg">$0.07</td><td class="val neg">$93.19<span class="pnl">-215 (-70%)</span></td></tr>
-        <tr data-category="Mažos akcijos"><td class="tk">NXL</td><td class="cat">Mažos akcijos</td><td class="num">184</td><td class="num">$2.49<span class="cost">$458 inv.</span></td><td class="num live neg">$0.48</td><td class="val neg">$87.86<span class="pnl">-370 (-81%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Avalanche<span class="sub">AVAX</span></td><td class="cat">Kripto</td><td class="num">9.28</td><td class="num">$30.31<span class="cost">$281 inv.</span></td><td class="num live neg">$6.47</td><td class="val neg">$60.05<span class="pnl">-221 (-79%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Celestia<span class="sub">TIA</span></td><td class="cat">Kripto</td><td class="num">154.38</td><td class="num">$4.07<span class="cost">$629 inv.</span></td><td class="num live neg">$0.36</td><td class="val neg">$55.47<span class="pnl">-574 (-91%)</span></td></tr>
-        <tr data-category="Mažos akcijos"><td class="tk">BIVI</td><td class="cat">Mažos akcijos</td><td class="num">28.10</td><td class="num">$32.74<span class="cost">$920 inv.</span></td><td class="num live neg">$1.80</td><td class="val neg">$50.58<span class="pnl">-869 (-95%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Polygon<span class="sub">MATIC</span></td><td class="cat">Kripto</td><td class="num">587.10</td><td class="num">$0.31<span class="cost">$181 inv.</span></td><td class="num live neg">$0.08</td><td class="val neg">$47.31<span class="pnl">-134 (-74%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Cosmos<span class="sub">ATOM</span></td><td class="cat">Kripto</td><td class="num">20.88</td><td class="num">$9.96<span class="cost">$208 inv.</span></td><td class="num live neg">$1.48</td><td class="val neg">$30.90<span class="pnl">-177 (-85%)</span></td></tr>
-        <tr data-category="Mažos akcijos"><td class="tk">CLDI</td><td class="cat">Mažos akcijos</td><td class="num">100</td><td class="num">$1.12<span class="cost">$112 inv.</span></td><td class="num live neg">$0.12</td><td class="val neg">$11.89<span class="pnl">-100 (-89%)</span></td></tr>
-        <tr data-category="Kripto"><td class="tk">Loopring<span class="sub">LRC</span></td><td class="cat">Kripto</td><td class="num">154.36</td><td class="num">$0.35<span class="cost">$54 inv.</span></td><td class="num live neg">$0.01</td><td class="val neg">$1.92<span class="pnl">-52 (-96%)</span></td></tr>
+        <tr data-category="Mažos akcijos"><td class="tk">RVPH</td><td class="cat">Mažos akcijos</td><td class="num">200</td><td class="num">$2.85<span class="cost">$570 inv.</span></td><td class="num live neg">$0.54</td><td class="val neg">$108.00<span class="pnl">-462 (-81%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Dogecoin<span class="sub">DOGE</span></td><td class="cat">Kripto</td><td class="num">1,288.25</td><td class="num">$0.24<span class="cost">$308 inv.</span></td><td class="num live neg">$0.07</td><td class="val neg">$92.42<span class="pnl">-215 (-70%)</span></td></tr>
+        <tr data-category="Mažos akcijos"><td class="tk">NXL</td><td class="cat">Mažos akcijos</td><td class="num">184</td><td class="num">$2.49<span class="cost">$458 inv.</span></td><td class="num live neg">$0.49</td><td class="val neg">$90.40<span class="pnl">-367 (-80%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Avalanche<span class="sub">AVAX</span></td><td class="cat">Kripto</td><td class="num">9.28</td><td class="num">$30.31<span class="cost">$281 inv.</span></td><td class="num live neg">$6.56</td><td class="val neg">$60.89<span class="pnl">-220 (-78%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Celestia<span class="sub">TIA</span></td><td class="cat">Kripto</td><td class="num">154.38</td><td class="num">$4.07<span class="cost">$629 inv.</span></td><td class="num live neg">$0.36</td><td class="val neg">$54.87<span class="pnl">-574 (-91%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Polygon<span class="sub">MATIC</span></td><td class="cat">Kripto</td><td class="num">587.10</td><td class="num">$0.31<span class="cost">$181 inv.</span></td><td class="num live neg">$0.08</td><td class="val neg">$47.13<span class="pnl">-134 (-74%)</span></td></tr>
+        <tr data-category="Mažos akcijos"><td class="tk">BIVI</td><td class="cat">Mažos akcijos</td><td class="num">28.10</td><td class="num">$32.74<span class="cost">$920 inv.</span></td><td class="num live neg">$1.43</td><td class="val neg">$40.04<span class="pnl">-880 (-96%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Cosmos<span class="sub">ATOM</span></td><td class="cat">Kripto</td><td class="num">20.88</td><td class="num">$9.96<span class="cost">$208 inv.</span></td><td class="num live neg">$1.49</td><td class="val neg">$31.11<span class="pnl">-177 (-85%)</span></td></tr>
+        <tr data-category="Mažos akcijos"><td class="tk">CLDI</td><td class="cat">Mažos akcijos</td><td class="num">100</td><td class="num">$1.12<span class="cost">$112 inv.</span></td><td class="num live neg">$0.12</td><td class="val neg">$11.56<span class="pnl">-100 (-90%)</span></td></tr>
+        <tr data-category="Kripto"><td class="tk">Loopring<span class="sub">LRC</span></td><td class="cat">Kripto</td><td class="num">154.36</td><td class="num">$0.35<span class="cost">$54 inv.</span></td><td class="num live neg">$0.01</td><td class="val neg">$1.91<span class="pnl">-52 (-96%)</span></td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="meta">
     <div>daug_pinigu - asmeninio portfelio inventorius</div>
-    <div>Atnaujinta 2026-07-19 (auto)</div>
+    <div>Atnaujinta 2026-07-20 (auto)</div>
   </div>
 </div>
 
@@ -419,7 +419,7 @@
   const centerBig = document.getElementById('donutCenterBig');
   const centerSml = document.getElementById('donutCenterSml');
   const allRows = document.querySelectorAll('tbody tr');
-  const TOTAL = 95796.70;
+  const TOTAL = 95769.31;
   const DEFAULT_COUNTER = '36 pozicijos &bull; 10 kategorijų';
   const DEFAULT_BIG = '$96K';
   let activeCategory = null;
@@ -478,10 +478,10 @@
 
 /* Interactive projection chart */
 (function() {
-  const CV = 95796.70;
+  const CV = 95769.31;
   const SV = 82666;
   const PMT = 1332.17;
-  const YR = 0.3213312223143874;
+  const YR = 0.32068702172860486;
   const SR = 0.11;
   const W = 820, H = 380, PL = 70, PR = 30, PT = 20, PB = 40;
   const innerW = W - PL - PR;
