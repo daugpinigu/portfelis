@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-08-12",
+    "lastUpdated": "2026-08-13",
     "totalInvested": 54619.0,
     "monthlyDCA": 1332.17,
     "startDate": "2023-01-01",
@@ -13,7 +13,7 @@
       "shares": 52,
       "avgPrice": 270.75,
       "cost": 14079.07,
-      "currentPrice": 327.51,
+      "currentPrice": 339.96,
       "yahoo": "TSLA"
     },
     {
@@ -22,7 +22,7 @@
       "shares": 45,
       "avgPrice": 203.58,
       "cost": 9161.0,
-      "currentPrice": 267.28,
+      "currentPrice": 265.13,
       "yahoo": "AMZN"
     },
     {
@@ -36,7 +36,7 @@
       "shares": 35,
       "avgPrice": 178.29,
       "cost": 6240.0,
-      "currentPrice": 224.09,
+      "currentPrice": 225.3,
       "yahoo": "NVDA"
     },
     {
@@ -45,7 +45,7 @@
       "shares": 12,
       "avgPrice": 522.32,
       "cost": 6267.8,
-      "currentPrice": 578.85,
+      "currentPrice": 594.97,
       "yahoo": "META"
     },
     {
@@ -54,7 +54,7 @@
       "shares": 300,
       "avgPrice": 21.31,
       "cost": 6391.5,
-      "currentPrice": 17.94,
+      "currentPrice": 18.43,
       "yahoo": "SOFI"
     },
     {
@@ -63,7 +63,7 @@
       "shares": 60,
       "avgPrice": 56.27,
       "cost": 3376.0,
-      "currentPrice": 94.91,
+      "currentPrice": 99.37,
       "yahoo": "HOOD"
     },
     {
@@ -74,7 +74,7 @@
       "shares": 0.05527,
       "avgPrice": 33387.51,
       "cost": 1845.35,
-      "currentPrice": 63452,
+      "currentPrice": 63553,
       "coingecko": "bitcoin"
     },
     {
@@ -92,7 +92,7 @@
       "shares": 900,
       "avgPrice": 4.66,
       "cost": 4194.86,
-      "currentPrice": 3.61,
+      "currentPrice": 3.7,
       "yahoo": "GRAB"
     },
     {
@@ -101,7 +101,7 @@
       "shares": 130,
       "avgPrice": 39.04,
       "cost": 5075.0,
-      "currentPrice": 17.89,
+      "currentPrice": 18.29,
       "yahoo": "BMNR"
     },
     {
@@ -110,7 +110,7 @@
       "shares": 20,
       "avgPrice": 87.29,
       "cost": 1745.8,
-      "currentPrice": 104.84,
+      "currentPrice": 104.68,
       "yahoo": "BIDU"
     },
     {
@@ -119,7 +119,7 @@
       "shares": 6,
       "avgPrice": 185.91,
       "cost": 1115.46,
-      "currentPrice": 343.54,
+      "currentPrice": 346.36,
       "yahoo": "GOOGL"
     },
     {
@@ -128,7 +128,7 @@
       "shares": 17,
       "avgPrice": 77.96,
       "cost": 1403.0,
-      "currentPrice": 125.22,
+      "currentPrice": 122.16,
       "yahoo": "BABA"
     },
     {
@@ -137,7 +137,7 @@
       "shares": 500,
       "avgPrice": 2.3,
       "cost": 1149.0,
-      "currentPrice": 1.87,
+      "currentPrice": 1.94,
       "yahoo": "VLN"
     },
     {
@@ -146,7 +146,7 @@
       "shares": 150,
       "avgPrice": 8.49,
       "cost": 1273.5,
-      "currentPrice": 6.29,
+      "currentPrice": 6.4,
       "yahoo": "LUMN"
     },
     {
@@ -155,7 +155,7 @@
       "shares": 100,
       "avgPrice": 8.6,
       "cost": 860.0,
-      "currentPrice": 12.18,
+      "currentPrice": 11.52,
       "yahoo": "CLSK"
     },
     {
@@ -164,7 +164,7 @@
       "shares": 35,
       "avgPrice": 36.29,
       "cost": 1270.0,
-      "currentPrice": 31.61,
+      "currentPrice": 29.3,
       "yahoo": "JD"
     },
     {
@@ -173,7 +173,7 @@
       "shares": 100,
       "avgPrice": 18.29,
       "cost": 1829.0,
-      "currentPrice": 6.18,
+      "currentPrice": 6.32,
       "yahoo": "SBET"
     },
     {
@@ -184,7 +184,7 @@
       "shares": 7,
       "avgPrice": 147.36,
       "cost": 1031.52,
-      "currentPrice": 75.52,
+      "currentPrice": 76.33,
       "coingecko": "solana"
     },
     {
@@ -195,7 +195,7 @@
       "shares": 2,
       "avgPrice": 286.1,
       "cost": 572.2,
-      "currentPrice": 199.73,
+      "currentPrice": 203.2,
       "coingecko": "bittensor"
     },
     {
@@ -206,7 +206,7 @@
       "shares": 56.506,
       "avgPrice": 10.89,
       "cost": 615.6,
-      "currentPrice": 8.67,
+      "currentPrice": 8.86,
       "coingecko": "chainlink"
     },
     {
@@ -220,7 +220,7 @@
       "shares": 20,
       "avgPrice": 17.95,
       "cost": 359.0,
-      "currentPrice": 18.54,
+      "currentPrice": 18.57,
       "yahoo": "GME"
     },
     {
@@ -243,7 +243,7 @@
       "shares": 25,
       "avgPrice": 14.06,
       "cost": 351.5,
-      "currentPrice": 4.794,
+      "currentPrice": 5.215,
       "yahoo": "TSL3.L"
     },
     {
@@ -252,7 +252,7 @@
       "shares": 38,
       "avgPrice": 25.74,
       "cost": 978.0,
-      "currentPrice": 7.0,
+      "currentPrice": 6.77,
       "yahoo": "ALGS"
     },
     {
@@ -263,7 +263,7 @@
       "shares": 483.449,
       "avgPrice": 0.31,
       "cost": 148.52,
-      "currentPrice": 0.335523,
+      "currentPrice": 0.334247,
       "coingecko": "tron"
     },
     {
@@ -272,7 +272,7 @@
       "shares": 200,
       "avgPrice": 2.85,
       "cost": 569.6,
-      "currentPrice": 0.461,
+      "currentPrice": 0.47,
       "yahoo": "RVPH"
     },
     {
@@ -283,7 +283,7 @@
       "shares": 1288.25,
       "avgPrice": 0.24,
       "cost": 307.87,
-      "currentPrice": 0.069332,
+      "currentPrice": 0.070263,
       "coingecko": "dogecoin"
     },
     {
@@ -299,7 +299,7 @@
       "shares": 9.282,
       "avgPrice": 30.31,
       "cost": 281.3,
-      "currentPrice": 6.33,
+      "currentPrice": 6.43,
       "coingecko": "avalanche-2"
     },
     {
@@ -308,7 +308,7 @@
       "shares": 184,
       "avgPrice": 2.49,
       "cost": 457.68,
-      "currentPrice": 0.356,
+      "currentPrice": 0.3504,
       "yahoo": "NXL"
     },
     {
@@ -319,7 +319,7 @@
       "shares": 154.38,
       "avgPrice": 4.07,
       "cost": 629.0,
-      "currentPrice": 0.30057,
+      "currentPrice": 0.310014,
       "coingecko": "celestia"
     },
     {
@@ -330,7 +330,7 @@
       "shares": 587.1,
       "avgPrice": 0.31,
       "cost": 181.3,
-      "currentPrice": 0.074519,
+      "currentPrice": 0.073352,
       "coingecko": "polygon-ecosystem-token"
     },
     {
@@ -341,7 +341,7 @@
       "shares": 20.88,
       "avgPrice": 9.96,
       "cost": 208.0,
-      "currentPrice": 1.4,
+      "currentPrice": 1.51,
       "coingecko": "cosmos"
     },
     {
@@ -359,7 +359,7 @@
       "shares": 100,
       "avgPrice": 1.12,
       "cost": 112.0,
-      "currentPrice": 1.63,
+      "currentPrice": 1.54,
       "yahoo": "CLDI"
     },
     {
@@ -370,7 +370,7 @@
       "shares": 154.36,
       "avgPrice": 0.35,
       "cost": 54.2,
-      "currentPrice": 0.0091193,
+      "currentPrice": 0.00907928,
       "coingecko": "loopring"
     }
   ],
