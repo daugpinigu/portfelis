@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-09-29",
+    "lastUpdated": "2026-09-30",
     "totalInvested": 54619.0,
     "monthlyDCA": 1332.17,
     "startDate": "2023-01-01",
@@ -13,7 +13,7 @@
       "shares": 52,
       "avgPrice": 270.75,
       "cost": 14079.07,
-      "currentPrice": 357.45,
+      "currentPrice": 352.84,
       "yahoo": "TSLA"
     },
     {
@@ -22,7 +22,7 @@
       "shares": 45,
       "avgPrice": 203.58,
       "cost": 9161.0,
-      "currentPrice": 246.15,
+      "currentPrice": 246.67,
       "yahoo": "AMZN"
     },
     {
@@ -36,7 +36,7 @@
       "shares": 35,
       "avgPrice": 178.29,
       "cost": 6240.0,
-      "currentPrice": 228.86,
+      "currentPrice": 227.21,
       "yahoo": "NVDA"
     },
     {
@@ -45,7 +45,7 @@
       "shares": 12,
       "avgPrice": 522.32,
       "cost": 6267.8,
-      "currentPrice": 715.62,
+      "currentPrice": 738.79,
       "yahoo": "META"
     },
     {
@@ -54,7 +54,7 @@
       "shares": 300,
       "avgPrice": 21.31,
       "cost": 6391.5,
-      "currentPrice": 15.93,
+      "currentPrice": 15.91,
       "yahoo": "SOFI"
     },
     {
@@ -63,7 +63,7 @@
       "shares": 60,
       "avgPrice": 56.27,
       "cost": 3376.0,
-      "currentPrice": 116.46,
+      "currentPrice": 116.22,
       "yahoo": "HOOD"
     },
     {
@@ -92,7 +92,7 @@
       "shares": 900,
       "avgPrice": 4.66,
       "cost": 4194.86,
-      "currentPrice": 3.095,
+      "currentPrice": 3.12,
       "yahoo": "GRAB"
     },
     {
@@ -101,7 +101,7 @@
       "shares": 130,
       "avgPrice": 39.04,
       "cost": 5075.0,
-      "currentPrice": 26.84,
+      "currentPrice": 26.73,
       "yahoo": "BMNR"
     },
     {
@@ -110,7 +110,7 @@
       "shares": 20,
       "avgPrice": 87.29,
       "cost": 1745.8,
-      "currentPrice": 86.97,
+      "currentPrice": 86.71,
       "yahoo": "BIDU"
     },
     {
@@ -119,7 +119,7 @@
       "shares": 6,
       "avgPrice": 185.91,
       "cost": 1115.46,
-      "currentPrice": 342.75,
+      "currentPrice": 340.92,
       "yahoo": "GOOGL"
     },
     {
@@ -128,7 +128,7 @@
       "shares": 17,
       "avgPrice": 77.96,
       "cost": 1403.0,
-      "currentPrice": 108.76,
+      "currentPrice": 107.74,
       "yahoo": "BABA"
     },
     {
@@ -137,7 +137,7 @@
       "shares": 500,
       "avgPrice": 2.3,
       "cost": 1149.0,
-      "currentPrice": 1.81,
+      "currentPrice": 1.83,
       "yahoo": "VLN"
     },
     {
@@ -146,7 +146,7 @@
       "shares": 150,
       "avgPrice": 8.49,
       "cost": 1273.5,
-      "currentPrice": 5.53,
+      "currentPrice": 5.54,
       "yahoo": "LUMN"
     },
     {
@@ -155,7 +155,7 @@
       "shares": 100,
       "avgPrice": 8.6,
       "cost": 860.0,
-      "currentPrice": 13.34,
+      "currentPrice": 13.31,
       "yahoo": "CLSK"
     },
     {
@@ -164,7 +164,7 @@
       "shares": 35,
       "avgPrice": 36.29,
       "cost": 1270.0,
-      "currentPrice": 26.61,
+      "currentPrice": 26.3,
       "yahoo": "JD"
     },
     {
@@ -173,7 +173,7 @@
       "shares": 100,
       "avgPrice": 18.29,
       "cost": 1829.0,
-      "currentPrice": 9.5,
+      "currentPrice": 9.46,
       "yahoo": "SBET"
     },
     {
@@ -220,7 +220,7 @@
       "shares": 20,
       "avgPrice": 17.95,
       "cost": 359.0,
-      "currentPrice": 23.96,
+      "currentPrice": 23.76,
       "yahoo": "GME"
     },
     {
@@ -243,7 +243,7 @@
       "shares": 25,
       "avgPrice": 14.06,
       "cost": 351.5,
-      "currentPrice": 6.0325,
+      "currentPrice": 5.7225,
       "yahoo": "TSL3.L"
     },
     {
@@ -252,7 +252,7 @@
       "shares": 38,
       "avgPrice": 25.74,
       "cost": 978.0,
-      "currentPrice": 5.54,
+      "currentPrice": 5.62,
       "yahoo": "ALGS"
     },
     {
@@ -272,7 +272,7 @@
       "shares": 200,
       "avgPrice": 2.85,
       "cost": 569.6,
-      "currentPrice": 0.48,
+      "currentPrice": 0.504,
       "yahoo": "RVPH"
     },
     {
@@ -308,7 +308,7 @@
       "shares": 184,
       "avgPrice": 2.49,
       "cost": 457.68,
-      "currentPrice": 4.27,
+      "currentPrice": 4.35,
       "yahoo": "NXL"
     },
     {
@@ -359,7 +359,7 @@
       "shares": 100,
       "avgPrice": 1.12,
       "cost": 112.0,
-      "currentPrice": 1.07,
+      "currentPrice": 1.08,
       "yahoo": "CLDI"
     },
     {
