@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-10-03",
+    "lastUpdated": "2026-10-04",
     "totalInvested": 54619.0,
     "monthlyDCA": 1332.17,
     "startDate": "2023-01-01",
@@ -74,7 +74,7 @@
       "shares": 0.05527,
       "avgPrice": 33387.51,
       "cost": 1845.35,
-      "currentPrice": 84611,
+      "currentPrice": 84806,
       "coingecko": "bitcoin"
     },
     {
@@ -184,7 +184,7 @@
       "shares": 7,
       "avgPrice": 147.36,
       "cost": 1031.52,
-      "currentPrice": 119.08,
+      "currentPrice": 119.68,
       "coingecko": "solana"
     },
     {
@@ -195,7 +195,7 @@
       "shares": 2,
       "avgPrice": 286.1,
       "cost": 572.2,
-      "currentPrice": 294.62,
+      "currentPrice": 307.07,
       "coingecko": "bittensor"
     },
     {
@@ -206,7 +206,7 @@
       "shares": 56.506,
       "avgPrice": 10.89,
       "cost": 615.6,
-      "currentPrice": 13.87,
+      "currentPrice": 14.14,
       "coingecko": "chainlink"
     },
     {
@@ -263,7 +263,7 @@
       "shares": 483.449,
       "avgPrice": 0.31,
       "cost": 148.52,
-      "currentPrice": 0.334447,
+      "currentPrice": 0.335732,
       "coingecko": "tron"
     },
     {
@@ -283,7 +283,7 @@
       "shares": 1288.25,
       "avgPrice": 0.24,
       "cost": 307.87,
-      "currentPrice": 0.093334,
+      "currentPrice": 0.092814,
       "coingecko": "dogecoin"
     },
     {
@@ -299,7 +299,7 @@
       "shares": 9.282,
       "avgPrice": 30.31,
       "cost": 281.3,
-      "currentPrice": 10.91,
+      "currentPrice": 11.12,
       "coingecko": "avalanche-2"
     },
     {
@@ -319,7 +319,7 @@
       "shares": 154.38,
       "avgPrice": 4.07,
       "cost": 629.0,
-      "currentPrice": 0.449252,
+      "currentPrice": 0.473316,
       "coingecko": "celestia"
     },
     {
@@ -330,7 +330,7 @@
       "shares": 587.1,
       "avgPrice": 0.31,
       "cost": 181.3,
-      "currentPrice": 0.107573,
+      "currentPrice": 0.109857,
       "coingecko": "polygon-ecosystem-token"
     },
     {
@@ -341,7 +341,7 @@
       "shares": 20.88,
       "avgPrice": 9.96,
       "cost": 208.0,
-      "currentPrice": 1.67,
+      "currentPrice": 1.72,
       "coingecko": "cosmos"
     },
     {
@@ -370,7 +370,7 @@
       "shares": 154.36,
       "avgPrice": 0.35,
       "cost": 54.2,
-      "currentPrice": 0.01029704,
+      "currentPrice": 0.01036814,
       "coingecko": "loopring"
     }
   ],
